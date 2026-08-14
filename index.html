@@ -1,0 +1,4467 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vealthme | Corporate Health Screening &amp; Wellness Programs</title>
+  <link rel="icon" type="image/png" href="browser.png">
+  <link rel="apple-touch-icon" href="browser.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;700;800&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <style>
+    /* ============ TOKENS ============ */
+    :root {
+      --white: #FFFFFF;
+      --ice: #F5FAFD;
+      --ice-2: #EAF5FC;
+      --blue-deep: #0F3D5C;
+      --blue-primary: #1C6FA8;
+      --blue-soft: #6FB3DD;
+      --neon: #3FDCFF;
+      --neon-glow: rgba(63, 220, 255, .35);
+      --text-main: #152A3D;
+      --text-muted: #5C7488;
+      --border-soft: #DCEBF4;
+      --radius-lg: 28px;
+      --radius-md: 18px;
+      --radius-sm: 12px;
+      --shadow-soft: 0 20px 60px -20px rgba(15, 61, 92, .18);
+      --shadow-pill: 0 10px 30px -8px rgba(15, 61, 92, .20);
+      --ff-head: 'Manrope', sans-serif;
+      --ff-body: 'Inter', sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: var(--ff-body);
+      color: var(--text-main);
+      background: var(--ice);
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    button {
+      font-family: inherit;
+      cursor: pointer;
+      border: none;
+      background: none;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      font-family: var(--ff-head);
+      color: var(--blue-deep);
+      line-height: 1.15;
+      letter-spacing: -.01em;
+    }
+
+    .eyebrow {
+      font-family: var(--ff-body);
+      font-weight: 700;
+      font-size: .78rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--blue-primary);
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 22px;
+      height: 2px;
+      background: var(--neon);
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .container {
+      width: min(1200px, 92%);
+      margin-inline: auto;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--neon);
+      outline-offset: 3px;
+      border-radius: 6px;
+    }
+
+    /* ============ SCROLL REVEAL ============ */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity .7s cubic-bezier(.2, .7, .2, 1), transform .7s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger.visible>* {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-stagger>* {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity .6s ease, transform .6s ease;
+    }
+
+    .reveal-stagger>*:nth-child(1) {
+      transition-delay: .05s;
+    }
+
+    .reveal-stagger>*:nth-child(2) {
+      transition-delay: .15s;
+    }
+
+    .reveal-stagger>*:nth-child(3) {
+      transition-delay: .25s;
+    }
+
+    .reveal-stagger>*:nth-child(4) {
+      transition-delay: .35s;
+    }
+
+    .reveal-stagger>*:nth-child(5) {
+      transition-delay: .45s;
+    }
+
+    .reveal-stagger>*:nth-child(6) {
+      transition-delay: .55s;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .reveal,
+      .reveal-stagger>* {
+        opacity: 1 !important;
+        transform: none !important;
+        transition: none !important;
+      }
+
+      html {
+        scroll-behavior: auto;
+      }
+    }
+
+    /* ============ BUTTONS ============ */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .92rem;
+      transition: transform .25s ease, box-shadow .25s ease, background .25s ease, color .25s ease;
+      white-space: nowrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      color: var(--white);
+      box-shadow: 0 12px 30px -10px rgba(28, 111, 168, .55);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 34px -8px var(--neon-glow);
+    }
+
+    .btn-white {
+      background: var(--white);
+      color: var(--blue-deep);
+      box-shadow: 0 12px 26px -10px rgba(15, 61, 92, .3);
+    }
+
+    .btn-white:hover {
+      transform: translateY(-3px);
+    }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--white);
+      border: 1.5px solid rgba(255, 255, 255, .65);
+    }
+
+    .btn-ghost:hover {
+      background: rgba(255, 255, 255, .15);
+      transform: translateY(-3px);
+    }
+
+    /* ============ HEADER (TRANSPARENT, SYNCED TO HERO) ============ */
+    header.site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      align-items: center;
+      gap: 24px;
+      padding: 22px clamp(24px, 4vw, 64px);
+      background: transparent;
+      border-bottom: 1px solid transparent;
+      transition: background .35s ease, padding .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    header.site-header.scrolled {
+      background: rgba(255, 255, 255, .9);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: var(--shadow-pill);
+      padding: 13px clamp(24px, 4vw, 64px);
+      border-bottom-color: var(--border-soft);
+    }
+
+    .nav-group {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: transparent;
+      border: none;
+      border-radius: 999px;
+      padding: 5px;
+    }
+
+    .nav-group.left {
+      justify-self: start;
+    }
+
+    .nav-right-wrap {
+      justify-self: end;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .nav-link {
+      padding: 10px 18px;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: .92rem;
+      letter-spacing: -.005em;
+      color: rgba(255, 255, 255, .88);
+      position: relative;
+      transition: color .25s ease, background .25s ease, transform .2s ease;
+    }
+
+    .scrolled .nav-link {
+      color: var(--text-muted);
+    }
+
+    .nav-link:hover {
+      color: var(--white);
+      background: transparent;
+    }
+
+    .scrolled .nav-link:hover {
+      color: var(--blue-primary);
+      background: transparent;
+    }
+
+    .nav-link.active {
+      color: var(--white);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .scrolled .nav-link.active {
+      color: var(--blue-primary);
+      background: transparent;
+      box-shadow: none;
+    }
+
+    .logo-mark {
+      justify-self: center;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: transparent;
+      padding: 4px 0;
+      transition: transform .25s ease;
+    }
+
+    .logo-mark:hover {
+      transform: translateY(-1px);
+    }
+
+    .logo-mark img {
+      height: 46px;
+      width: auto;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .25));
+    }
+
+    .logo-fallback {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo-fallback svg {
+      height: 38px;
+      width: 38px;
+      filter: drop-shadow(0 4px 14px rgba(0, 0, 0, .25));
+    }
+
+    .logo-word {
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--white);
+      text-shadow: 0 1px 8px rgba(0, 0, 0, .3);
+      letter-spacing: -.01em;
+    }
+
+    .scrolled .logo-word {
+      color: var(--blue-deep);
+      text-shadow: none;
+    }
+
+    .contact-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 13px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .92rem;
+      color: var(--blue-deep);
+      background: var(--white);
+      box-shadow: 0 10px 24px -8px rgba(15, 61, 92, .35);
+      transition: transform .25s ease, box-shadow .25s ease, gap .25s ease;
+    }
+
+    .contact-pill svg {
+      transition: transform .25s ease;
+    }
+
+    .contact-pill:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 26px -6px var(--neon-glow);
+      gap: 11px;
+    }
+
+    .contact-pill:hover svg {
+      transform: translateX(2px);
+    }
+
+    /* Apps dropdown */
+    .has-dropdown {
+      position: relative;
+    }
+
+    .apps-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      width: 230px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      padding: 14px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+    }
+
+    .has-dropdown:hover .apps-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .store-mini-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 12px;
+      background: var(--ice);
+      margin-bottom: 8px;
+      transition: background .2s ease;
+    }
+
+    .store-mini-badge:last-child {
+      margin-bottom: 0;
+    }
+
+    .store-mini-badge:hover {
+      background: var(--ice-2);
+    }
+
+    .store-mini-badge svg {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .store-mini-badge .txt {
+      line-height: 1.15;
+    }
+
+    .store-mini-badge .txt small {
+      display: block;
+      font-size: .62rem;
+      color: var(--text-muted);
+    }
+
+    .store-mini-badge .txt strong {
+      display: block;
+      font-size: .8rem;
+      color: var(--text-main);
+    }
+
+    /* mobile toggle */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      padding: 10px;
+      justify-self: end;
+      background: rgba(255, 255, 255, .9);
+      border-radius: 12px;
+    }
+
+    .menu-toggle span {
+      width: 20px;
+      height: 2px;
+      background: var(--blue-deep);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ============ VIEWS ============ */
+    .view {
+      display: none;
+    }
+
+    .view.active {
+      display: block;
+    }
+
+    /* ============ IMAGE HERO SHELL (dark overlay over photo) ============ */
+    .img-hero {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+    }
+
+    .img-hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(175deg, rgba(6, 26, 42, .72) 0%, rgba(9, 40, 62, .55) 45%, rgba(11, 52, 79, .82) 100%);
+    }
+
+    .img-hero>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .img-hero h1,
+    .img-hero h2 {
+      color: var(--white);
+    }
+
+    .img-hero p {
+      color: rgba(255, 255, 255, .86);
+    }
+
+    .img-hero .eyebrow {
+      color: var(--neon);
+    }
+
+    .img-hero .eyebrow::before {
+      background: var(--white);
+    }
+
+    /* ============ HERO ============ */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      min-height: 100svh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .hero-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 1.2s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-slide.active {
+      opacity: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      text-align: center;
+      max-width: 760px;
+      padding: 0 24px;
+    }
+
+    .hero-content .eyebrow {
+      justify-content: center;
+    }
+
+    .hero-content h1 {
+      font-size: clamp(2.1rem, 5.2vw, 3.6rem);
+      margin: 18px 0 20px;
+    }
+
+    .hero-content p {
+      font-size: clamp(1rem, 1.6vw, 1.15rem);
+      max-width: 600px;
+      margin: 0 auto 34px;
+    }
+
+    .hero-ctas {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .hero-dots {
+      position: absolute;
+      right: 28px;
+      bottom: 44px;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .hero-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .35);
+      border: 2px solid rgba(255, 255, 255, .8);
+      transition: all .3s ease;
+    }
+
+    .hero-dot.active {
+      background: var(--neon);
+      border-color: var(--neon);
+      height: 26px;
+      border-radius: 8px;
+      box-shadow: 0 0 0 4px rgba(63, 220, 255, .25);
+    }
+
+    /* ============ SECTION SHELLS ============ */
+    .section {
+      padding: 110px 0;
+    }
+
+    .section.tight {
+      padding: 90px 0;
+    }
+
+    .section-head {
+      max-width: 640px;
+      margin-bottom: 56px;
+    }
+
+    .section-head.center {
+      margin-inline: auto;
+      text-align: center;
+    }
+
+    .section-head h2 {
+      font-size: clamp(1.7rem, 3.4vw, 2.5rem);
+      margin-top: 14px;
+    }
+
+    .section-head p {
+      color: var(--text-muted);
+      margin-top: 14px;
+      font-size: 1.02rem;
+    }
+
+    .section-alt {
+      background: var(--white);
+    }
+
+    /* Floating chip signature motif */
+    .floating-chip {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      background: var(--white);
+      border-radius: 16px;
+      padding: 12px 18px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 2;
+      max-width: 220px;
+    }
+
+    .floating-chip .chip-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .floating-chip .chip-icon svg {
+      width: 17px;
+      height: 17px;
+      stroke: var(--white);
+    }
+
+    .floating-chip strong {
+      display: block;
+      font-size: .82rem;
+      color: var(--blue-deep);
+    }
+
+    .floating-chip span {
+      display: block;
+      font-size: .7rem;
+      color: var(--text-muted);
+    }
+
+    /* ============ VISION / MISSION ============ */
+    .vm-rows {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .vm-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 52px;
+      align-items: center;
+    }
+
+    .vm-row.reverse .vm-row-media {
+      order: 2;
+    }
+
+    .vm-row.reverse .vm-row-content {
+      order: 1;
+    }
+
+    .vm-row-media {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      min-height: 360px;
+      isolation: isolate;
+    }
+
+    .vm-row-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+      transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .vm-row-media:hover img {
+      transform: scale(1.06);
+    }
+
+    .vm-row-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(200deg, transparent 45%, rgba(15, 61, 92, .55));
+      z-index: 1;
+    }
+
+    .vm-row-tag {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .16);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: var(--white);
+      font-weight: 700;
+      font-size: .8rem;
+    }
+
+    .vm-row-content {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .vm-row-number {
+      position: absolute;
+      top: -34px;
+      left: -6px;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: 5.5rem;
+      line-height: 1;
+      color: rgba(28, 111, 168, .22);
+      -webkit-text-stroke: 1px rgba(28, 111, 168, .35);
+      z-index: 0;
+      user-select: none;
+    }
+
+    .vm-row-content>* {
+      position: relative;
+      z-index: 1;
+    }
+
+    .vm-row-content .icon-wrap {
+      width: 50px;
+      height: 50px;
+      border-radius: 14px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      margin-bottom: 18px;
+    }
+
+    .vm-row-content .icon-wrap svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--white);
+    }
+
+    .vm-row-content h3 {
+      font-size: 1.5rem;
+      margin-bottom: 14px;
+    }
+
+    .vm-row-content p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      font-size: 1rem;
+      max-width: 460px;
+    }
+
+    .pillars {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+
+    .pillar-chip {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      background: var(--ice-2);
+      padding: 8px 14px;
+      border-radius: 999px;
+      border: 1px solid var(--border-soft);
+    }
+
+    /* ============ SERVICES ============ */
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .service-card {
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform .35s ease, box-shadow .35s ease, border-color .35s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-soft);
+      border-color: var(--blue-soft);
+    }
+
+    .service-card-img {
+      height: 150px;
+      background-size: cover;
+      background-position: center;
+      position: relative;
+    }
+
+    .service-card-img::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 61, 92, 0) 55%, rgba(9, 40, 62, .55) 100%);
+    }
+
+    .service-card-body {
+      padding: 24px 24px 28px;
+    }
+
+    .service-card .icon-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .service-card .icon-row .icon-wrap {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: var(--ice-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .service-card .icon-row .icon-wrap svg {
+      width: 19px;
+      height: 19px;
+      stroke: var(--blue-primary);
+    }
+
+    .service-card h4 {
+      font-size: 1.06rem;
+      color: var(--blue-deep);
+    }
+
+    .service-card p {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    /* ============ BE PART OF / CTA BAND ============ */
+    .cta-band {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      padding: 64px 48px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    .cta-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: linear-gradient(120deg, rgba(15, 61, 92, .93), rgba(28, 111, 168, .82));
+    }
+
+    .cta-band::after {
+      content: "";
+      position: absolute;
+      width: 340px;
+      height: 340px;
+      border-radius: 50%;
+      background: var(--neon-glow);
+      filter: blur(70px);
+      top: -100px;
+      right: -60px;
+      z-index: 0;
+    }
+
+    .cta-band-text {
+      position: relative;
+      z-index: 1;
+      max-width: 520px;
+    }
+
+    .cta-band-text .eyebrow {
+      color: var(--neon);
+    }
+
+    .cta-band-text .eyebrow::before {
+      background: var(--white);
+    }
+
+    .cta-band-text h2 {
+      color: var(--white);
+      font-size: clamp(1.5rem, 2.8vw, 2.1rem);
+      margin-top: 12px;
+    }
+
+    .cta-band-text p {
+      color: rgba(255, 255, 255, .85);
+      margin-top: 12px;
+      line-height: 1.6;
+    }
+
+    .cta-band-actions {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    /* ============ TESTIMONIALS ============ */
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .testi-card {
+      background: var(--ice);
+      border-radius: var(--radius-md);
+      padding: 30px;
+      border: 1px solid var(--border-soft);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .testi-quote-mark {
+      width: 34px;
+      height: 34px;
+      stroke: var(--neon);
+      fill: none;
+    }
+
+    .testi-card p {
+      color: var(--text-main);
+      line-height: 1.7;
+      font-size: .98rem;
+    }
+
+    .testi-person {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-top: auto;
+    }
+
+    .testi-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--blue-soft), var(--blue-primary));
+      color: var(--white);
+      font-weight: 800;
+      font-family: var(--ff-head);
+    }
+
+    .testi-person strong {
+      display: block;
+      font-size: .9rem;
+      color: var(--blue-deep);
+    }
+
+    .testi-person span {
+      display: block;
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+
+    /* ============ CLIENTELE ============ */
+    .clientele-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+      padding: 20px 0 8px;
+    }
+
+    .client-card {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 22px 24px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.2, .7, .2, 1), box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .client-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, var(--blue-primary), var(--neon));
+      opacity: 0;
+      transition: opacity .3s ease;
+      z-index: 0;
+    }
+
+    .client-card:nth-child(even) {
+      transform: translateY(10px);
+    }
+
+    .client-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+      border-color: transparent;
+    }
+
+    .client-card:nth-child(even):hover {
+      transform: translateY(4px);
+    }
+
+    .client-card:hover::before {
+      opacity: 1;
+    }
+
+    .client-logo-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--ice-2);
+      position: relative;
+      z-index: 1;
+      transition: background .3s ease;
+    }
+
+    .client-logo-icon svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--blue-primary);
+      transition: stroke .3s ease;
+    }
+
+    .client-card:hover .client-logo-icon {
+      background: rgba(255, 255, 255, .22);
+    }
+
+    .client-card:hover .client-logo-icon svg {
+      stroke: var(--white);
+    }
+
+    .client-name {
+      position: relative;
+      z-index: 1;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: 1.02rem;
+      letter-spacing: -.01em;
+      color: var(--blue-deep);
+      transition: color .3s ease;
+    }
+
+    .client-card:hover .client-name {
+      color: var(--white);
+    }
+
+    /* ============ FOOTER ============ */
+    footer.site-footer {
+      background: var(--blue-deep);
+      color: rgba(255, 255, 255, .82);
+      padding: 70px 0 0;
+      margin-top: 60px;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.2fr;
+      gap: 40px;
+      padding-bottom: 50px;
+      border-bottom: 1px solid rgba(255, 255, 255, .12);
+    }
+
+    .footer-brand .logo-word {
+      color: var(--white);
+    }
+
+    .footer-brand p {
+      margin-top: 16px;
+      font-size: .9rem;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, .65);
+      max-width: 280px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      border: 1px solid rgba(255, 255, 255, .25);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: .25s;
+    }
+
+    .footer-social a:hover {
+      background: var(--neon);
+      border-color: var(--neon);
+    }
+
+    .footer-social svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--white);
+    }
+
+    .footer-col h5 {
+      color: var(--white);
+      font-family: var(--ff-head);
+      font-size: .92rem;
+      margin-bottom: 18px;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .footer-col ul li {
+      margin-bottom: 11px;
+    }
+
+    .footer-col a {
+      font-size: .9rem;
+      color: rgba(255, 255, 255, .68);
+      transition: color .2s;
+    }
+
+    .footer-col a:hover {
+      color: var(--neon);
+    }
+
+    .footer-newsletter {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .footer-newsletter input {
+      flex: 1;
+      padding: 12px 16px;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, .25);
+      background: rgba(255, 255, 255, .06);
+      color: var(--white);
+      font-size: .85rem;
+    }
+
+    .footer-newsletter input::placeholder {
+      color: rgba(255, 255, 255, .5);
+    }
+
+    .footer-newsletter button {
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: var(--neon);
+      color: var(--blue-deep);
+      font-weight: 800;
+      font-size: .85rem;
+    }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 0;
+      font-size: .82rem;
+      color: rgba(255, 255, 255, .55);
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .footer-bottom a {
+      color: rgba(255, 255, 255, .55);
+    }
+
+    /* ============ INNER PAGE HERO ============ */
+    .page-hero {
+      padding: 190px 0 90px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      margin-top: 14px;
+    }
+
+    .page-hero p {
+      max-width: 560px;
+      margin: 16px auto 0;
+    }
+
+    /* ============ ABOUT ============ */
+    .about-copy h2 {
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 14px 0 18px;
+    }
+
+    /* ============ ABOUT: STORY (TIMELINE REDESIGN) ============ */
+    .story-collage {
+      position: relative;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 20px;
+      margin-top: 40px;
+      margin-bottom: 50px;
+    }
+
+    .story-collage-img {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow-soft);
+      height: 380px;
+    }
+
+    .story-collage-badge {
+      position: absolute;
+      left: 30px;
+      bottom: -26px;
+      z-index: 2;
+      background: var(--white);
+      border-radius: 999px;
+      padding: 12px 20px 12px 12px;
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: var(--shadow-pill);
+    }
+
+    .story-collage-badge .dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      flex-shrink: 0;
+    }
+
+    .story-collage-badge strong {
+      display: block;
+      font-family: var(--ff-head);
+      font-size: .85rem;
+      color: var(--blue-deep);
+      line-height: 1.2;
+    }
+
+    .story-collage-badge span {
+      display: block;
+      font-size: .72rem;
+      color: var(--text-muted);
+    }
+
+    .story-timeline {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 26px;
+      margin-top: 76px;
+    }
+
+    .story-timeline::before {
+      content: "";
+      position: absolute;
+      top: -28px;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--border-soft);
+    }
+
+    .story-milestone {
+      position: relative;
+      padding-top: 6px;
+    }
+
+    .story-milestone-dot {
+      position: absolute;
+      top: -34px;
+      left: 0;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--neon);
+      box-shadow: 0 0 0 4px var(--ice), 0 0 0 5px var(--border-soft);
+    }
+
+    .story-milestone-year {
+      display: block;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      color: var(--blue-primary);
+      font-size: .82rem;
+      letter-spacing: .06em;
+      margin-bottom: 10px;
+    }
+
+    .story-milestone h4 {
+      font-size: .98rem;
+      margin-bottom: 8px;
+    }
+
+    .story-milestone p {
+      font-size: .84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    @media (max-width: 1024px) {
+      .story-collage {
+        grid-template-columns: 1fr;
+      }
+
+      .story-collage-img {
+        height: 260px;
+      }
+
+      .story-collage-badge {
+        position: static;
+        margin-top: -30px;
+        margin-left: 20px;
+      }
+
+      .story-timeline {
+        grid-template-columns: 1fr 1fr;
+        row-gap: 50px;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .story-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .story-timeline::before {
+        display: none;
+      }
+
+      .story-milestone {
+        padding-left: 26px;
+        border-left: 2px solid var(--border-soft);
+        padding-bottom: 10px;
+      }
+
+      .story-milestone-dot {
+        top: 2px;
+        left: -7px;
+      }
+    }
+
+    /* ============ ABOUT: IMPACT STATS BAND ============ */
+    .impact-band {
+      position: relative;
+      isolation: isolate;
+      background-size: cover;
+      background-position: center;
+      overflow: hidden;
+      padding: 20px 0;
+    }
+
+    .impact-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, rgba(15, 61, 92, .93), rgba(28, 111, 168, .88));
+      z-index: -1;
+    }
+
+    .impact-band-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+    }
+
+    .impact-stat {
+      text-align: center;
+      padding: 30px 14px;
+      border-right: 1px solid rgba(255, 255, 255, .16);
+    }
+
+    .impact-stat:last-child {
+      border-right: none;
+    }
+
+    .impact-stat-icon {
+      width: 52px;
+      height: 52px;
+      margin: 0 auto 16px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .12);
+      border: 1px solid rgba(255, 255, 255, .22);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .impact-stat-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: var(--neon);
+    }
+
+    .impact-stat .num {
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+      color: var(--white);
+      letter-spacing: -.02em;
+    }
+
+    .impact-stat .lbl {
+      font-size: .84rem;
+      color: rgba(255, 255, 255, .75);
+      margin-top: 6px;
+    }
+
+    /* ============ ABOUT: WHY CHOOSE US (CLEAN GRID) ============ */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+    }
+
+    .why-card {
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+      border-color: transparent;
+    }
+
+    .why-card .icon-wrap {
+      width: 46px;
+      height: 46px;
+      border-radius: 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      flex-shrink: 0;
+    }
+
+    .why-card .icon-wrap svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--white);
+    }
+
+    .why-card strong {
+      font-family: var(--ff-head);
+      font-size: 1.02rem;
+      color: var(--blue-deep);
+    }
+
+    .why-card p {
+      font-size: .86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .why-card.why-card-accent {
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      border-color: transparent;
+      color: var(--white);
+    }
+
+    .why-card.why-card-accent .icon-wrap {
+      background: rgba(255, 255, 255, .16);
+    }
+
+    .why-card.why-card-accent strong {
+      color: var(--white);
+    }
+
+    .why-card.why-card-accent p {
+      color: rgba(255, 255, 255, .8);
+    }
+
+    @media (max-width: 1024px) {
+      .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============ ABOUT: OUR TEAM ============ */
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 22px;
+    }
+
+    .team-card {
+      position: relative;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 3/3.6;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .team-card:nth-child(2n) {
+      margin-top: 26px;
+    }
+
+    .team-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .5s ease;
+    }
+
+    .team-card:hover img {
+      transform: scale(1.06);
+    }
+
+    .team-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(15, 61, 92, .92) 0%, rgba(15, 61, 92, .1) 55%, transparent 70%);
+    }
+
+    .team-card-info {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1;
+      color: var(--white);
+    }
+
+    .team-card-info strong {
+      display: block;
+      font-family: var(--ff-head);
+      font-size: 1.02rem;
+    }
+
+    .team-card-info span {
+      font-size: .78rem;
+      color: rgba(255, 255, 255, .8);
+    }
+
+    .team-card-social {
+      position: absolute;
+      top: 16px;
+      right: 16px;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      opacity: 0;
+      transform: translateX(8px);
+      transition: opacity .3s ease, transform .3s ease;
+    }
+
+    .team-card:hover .team-card-social {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .team-card-social a {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .18);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, .3);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .team-card-social svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--white);
+    }
+
+    /* ============ ABOUT: AWARDS ============ */
+    .awards-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .award-card {
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 26px 20px;
+      text-align: center;
+      transition: transform .3s ease, box-shadow .3s ease;
+      position: relative;
+    }
+
+    .award-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .award-card:nth-child(odd) {
+      transform: rotate(-1.2deg);
+    }
+
+    .award-card:nth-child(even) {
+      transform: rotate(1.2deg);
+    }
+
+    .award-card:hover {
+      transform: translateY(-6px) rotate(0deg);
+    }
+
+    .award-badge {
+      width: 56px;
+      height: 56px;
+      margin: 0 auto 14px;
+      border-radius: 50%;
+      background: var(--ice-2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .award-badge svg {
+      width: 26px;
+      height: 26px;
+      stroke: var(--blue-primary);
+    }
+
+    .award-card strong {
+      display: block;
+      font-family: var(--ff-head);
+      font-size: .96rem;
+      color: var(--blue-deep);
+      margin-bottom: 4px;
+    }
+
+    .award-card span {
+      font-size: .78rem;
+      color: var(--text-muted);
+    }
+
+
+    /* ============ SERVICE: MODERN SHOWCASE ============ */
+    .service-cats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin-top: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .service-cat-chip {
+      font-size: .78rem;
+      font-weight: 700;
+      color: var(--white);
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .3);
+      backdrop-filter: blur(8px);
+      padding: 9px 16px;
+      border-radius: 999px;
+    }
+
+    .service-feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: stretch;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      margin-bottom: 26px;
+    }
+
+    .service-feature.reverse .service-feature-media {
+      order: 2;
+    }
+
+    .service-feature.reverse .service-feature-body {
+      order: 1;
+    }
+
+    .service-feature-media {
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      min-height: 380px;
+      isolation: isolate;
+    }
+
+    .service-feature-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(200deg, transparent 45%, rgba(15, 61, 92, .6));
+    }
+
+    .service-feature-index {
+      position: absolute;
+      left: 22px;
+      top: 22px;
+      z-index: 1;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      color: var(--white);
+      font-size: .78rem;
+      letter-spacing: .1em;
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .3);
+      backdrop-filter: blur(8px);
+      padding: 8px 14px;
+      border-radius: 999px;
+    }
+
+    .service-feature-body {
+      padding: 46px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .service-feature-body h3 {
+      font-size: clamp(1.4rem, 2.4vw, 1.85rem);
+      margin: 12px 0 14px;
+    }
+
+    .service-feature-body p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 20px;
+    }
+
+    .service-feature-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 26px;
+    }
+
+    .service-feature-tags span {
+      font-size: .76rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      background: var(--ice-2);
+      border: 1px solid var(--border-soft);
+      padding: 7px 13px;
+      border-radius: 999px;
+    }
+
+    .service-feature-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: .92rem;
+      color: var(--blue-deep);
+      width: fit-content;
+      transition: gap .25s ease, color .25s ease;
+    }
+
+    .service-feature-link svg {
+      width: 16px;
+      height: 16px;
+      transition: transform .25s ease;
+    }
+
+    .service-feature-link:hover {
+      color: var(--blue-primary);
+      gap: 12px;
+    }
+
+    @media (max-width: 1024px) {
+      .service-feature {
+        grid-template-columns: 1fr;
+      }
+
+      .service-feature.reverse .service-feature-media,
+      .service-feature.reverse .service-feature-body {
+        order: 0;
+      }
+
+      .service-feature-media {
+        min-height: 260px;
+      }
+
+      .service-feature-body {
+        padding: 34px 28px;
+      }
+    }
+
+    /* ============ BLOG ============ */
+    .blog-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 26px;
+    }
+
+    .blog-card {
+      background: var(--white);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .blog-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .blog-thumb {
+      height: 180px;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .blog-body {
+      padding: 22px;
+    }
+
+    .blog-tag {
+      font-size: .72rem;
+      font-weight: 700;
+      color: var(--blue-primary);
+      text-transform: uppercase;
+      letter-spacing: .06em;
+    }
+
+    .blog-body h4 {
+      font-size: 1.02rem;
+      margin: 10px 0 8px;
+      line-height: 1.4;
+    }
+
+    .blog-body p {
+      font-size: .86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    .blog-meta {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 16px;
+      font-size: .76rem;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border-soft);
+      padding-top: 14px;
+    }
+
+    /* ============ COLLABORATION ============ */
+    /* ============ COLLABORATION (STAGGERED IMAGE CARDS) ============ */
+    .collab-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 30px 26px;
+    }
+
+    .collab-card {
+      position: relative;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .collab-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .collab-media {
+      position: relative;
+      height: 190px;
+      background-size: cover;
+      background-position: center;
+      isolation: isolate;
+      overflow: hidden;
+    }
+
+    .collab-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .6s cubic-bezier(.2, .7, .2, 1);
+    }
+
+    .collab-card:hover .collab-media img {
+      transform: scale(1.08);
+    }
+
+    .collab-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(200deg, transparent 45%, rgba(15, 61, 92, .68));
+    }
+
+    .collab-media .collab-tag {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      z-index: 1;
+      font-size: .7rem;
+      font-weight: 700;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: rgba(255, 255, 255, .16);
+      border: 1px solid rgba(255, 255, 255, .3);
+      backdrop-filter: blur(8px);
+      padding: 6px 12px;
+      border-radius: 999px;
+    }
+
+    .collab-icon-badge {
+      position: absolute;
+      left: 22px;
+      top: 166px;
+      z-index: 3;
+      width: 52px;
+      height: 52px;
+      border-radius: 15px;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 10px 22px -8px rgba(15, 61, 92, .45);
+      border: 3px solid var(--white);
+    }
+
+    .collab-icon-badge svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--white);
+    }
+
+    .collab-body {
+      padding: 38px 26px 26px;
+    }
+
+    .collab-body h4 {
+      font-size: 1.08rem;
+      margin-bottom: 10px;
+    }
+
+    .collab-body p {
+      font-size: .9rem;
+      color: var(--text-muted);
+      line-height: 1.65;
+    }
+
+    @media (max-width: 860px) {
+      .collab-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* ============ APPS ============ */
+    .apps-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 50px;
+      align-items: center;
+    }
+
+    .phone-mockup {
+      width: 260px;
+      height: 530px;
+      margin-inline: auto;
+      background: var(--blue-deep);
+      border-radius: 42px;
+      padding: 14px;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+    }
+
+    .phone-screen {
+      width: 100%;
+      height: 100%;
+      border-radius: 30px;
+      overflow: hidden;
+      position: relative;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-end;
+      padding: 22px;
+    }
+
+    .phone-screen::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 61, 92, .15) 0%, rgba(9, 40, 62, .75) 100%);
+    }
+
+    .phone-card {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      background: rgba(255, 255, 255, .94);
+      border-radius: 16px;
+      padding: 16px;
+      backdrop-filter: blur(6px);
+    }
+
+    .phone-card strong {
+      display: block;
+      font-family: var(--ff-head);
+      color: var(--blue-deep);
+      font-size: .95rem;
+    }
+
+    .phone-card span {
+      display: block;
+      font-size: .72rem;
+      color: var(--text-muted);
+      margin-top: 4px;
+    }
+
+    .store-badges {
+      display: flex;
+      gap: 14px;
+      margin-top: 26px;
+      flex-wrap: wrap;
+    }
+
+    .store-badge {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--blue-deep);
+      color: var(--white);
+      padding: 12px 20px;
+      border-radius: 14px;
+      transition: transform .25s ease, background .25s ease;
+    }
+
+    .store-badge:hover {
+      transform: translateY(-3px);
+      background: var(--blue-primary);
+    }
+
+    .store-badge svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .store-badge .txt small {
+      display: block;
+      font-size: .62rem;
+      opacity: .8;
+    }
+
+    .store-badge .txt strong {
+      display: block;
+      font-size: .95rem;
+      font-family: var(--ff-head);
+    }
+
+    .app-features {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 60px;
+    }
+
+    .app-feature {
+      text-align: center;
+      padding: 28px 18px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+    }
+
+    .app-feature svg {
+      width: 30px;
+      height: 30px;
+      stroke: var(--blue-primary);
+      margin-bottom: 14px;
+    }
+
+    .app-feature h4 {
+      font-size: 1rem;
+      margin-bottom: 8px;
+    }
+
+    .app-feature p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============ APPS: STEPS ============ */
+    .app-steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 22px;
+      margin-top: 34px;
+    }
+
+    .app-step {
+      position: relative;
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      padding: 30px 26px;
+      transition: transform .3s ease, box-shadow .3s ease;
+    }
+
+    .app-step:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .app-step .step-num {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      color: var(--white);
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: .92rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+
+    .app-step h4 {
+      font-size: 1.02rem;
+      margin-bottom: 8px;
+    }
+
+    .app-step p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ============ APPS: GALLERY ============ */
+    .app-gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 34px;
+    }
+
+    .app-gallery-item {
+      position: relative;
+      height: 280px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      box-shadow: var(--shadow-soft);
+      transition: transform .35s ease;
+    }
+
+    .app-gallery-item:hover {
+      transform: translateY(-6px);
+    }
+
+    .app-gallery-item::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 61, 92, 0) 45%, rgba(9, 40, 62, .78) 100%);
+    }
+
+    .app-gallery-item span {
+      position: absolute;
+      bottom: 16px;
+      left: 18px;
+      right: 18px;
+      z-index: 1;
+      color: var(--white);
+      font-family: var(--ff-head);
+      font-weight: 700;
+      font-size: .92rem;
+    }
+
+    /* ============ CONTACT ============ */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 30px;
+      align-items: start;
+    }
+
+    .contact-form {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .form-field label {
+      font-size: .82rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .form-field input,
+    .form-field textarea {
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-soft);
+      font-family: inherit;
+      font-size: .92rem;
+      background: var(--ice);
+      transition: border-color .2s ease, background .2s ease;
+    }
+
+    .form-field input:focus,
+    .form-field textarea:focus {
+      border-color: var(--blue-soft);
+      background: var(--white);
+      outline: none;
+    }
+
+    .contact-form-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 26px;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .contact-form-head h3 {
+      font-size: 1.3rem;
+      margin-top: 8px;
+    }
+
+    .contact-form-head p {
+      font-size: .85rem;
+      color: var(--text-muted);
+      margin-top: 8px;
+      max-width: 340px;
+    }
+
+    .response-badge {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--ice-2);
+      color: var(--blue-primary);
+      font-size: .76rem;
+      font-weight: 700;
+      padding: 9px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .response-badge svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--blue-primary);
+      flex-shrink: 0;
+    }
+
+    .btn-primary svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--white);
+    }
+
+    .contact-info-card {
+      background: var(--blue-deep);
+      color: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 36px;
+      margin-bottom: 20px;
+    }
+
+    .contact-info-row {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      margin-bottom: 20px;
+    }
+
+    .contact-info-row:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-info-row svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--neon);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .contact-info-row strong {
+      display: block;
+      font-size: .85rem;
+      margin-bottom: 3px;
+    }
+
+    .contact-info-row span {
+      font-size: .85rem;
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .map-placeholder {
+      height: 220px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      position: relative;
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      align-items: flex-end;
+    }
+
+    .map-placeholder::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(15, 61, 92, .1), rgba(9, 40, 62, .7));
+    }
+
+    .map-placeholder span {
+      position: relative;
+      z-index: 1;
+      color: var(--white);
+      font-size: .85rem;
+      font-weight: 600;
+      padding: 16px;
+    }
+
+    .map-frame {
+      height: 480px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .map-frame iframe {
+      width: 100%;
+      height: 100%;
+      border: 0;
+      display: block;
+    }
+
+    .map-card {
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+      background: var(--white);
+      display: flex;
+      flex-direction: column;
+      height: 420px;
+    }
+
+    .map-card-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 22px 24px;
+      background: var(--blue-deep);
+      color: var(--white);
+    }
+
+    .map-card-head-info {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+    }
+
+    .map-card-head-info svg {
+      width: 20px;
+      height: 20px;
+      stroke: var(--neon);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .map-card-head-info strong {
+      display: block;
+      font-size: .9rem;
+      margin-bottom: 3px;
+    }
+
+    .map-card-head-info span {
+      font-size: .8rem;
+      color: rgba(255, 255, 255, .75);
+    }
+
+    .map-directions {
+      flex-shrink: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, .14);
+      border: 1px solid rgba(255, 255, 255, .3);
+      color: var(--white);
+      font-size: .78rem;
+      font-weight: 700;
+      padding: 9px 14px;
+      border-radius: 999px;
+      white-space: nowrap;
+      transition: background .25s ease, transform .25s ease;
+    }
+
+    .map-directions:hover {
+      background: rgba(255, 255, 255, .26);
+      transform: translateY(-2px);
+    }
+
+    .map-directions svg {
+      width: 13px;
+      height: 13px;
+    }
+
+    .map-card iframe {
+      flex: 1;
+      width: 100%;
+      border: 0;
+      display: block;
+    }
+
+    /* ============ CONTACT: CAREERS ============ */
+    .career-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-top: 34px;
+    }
+
+    .career-card {
+      display: flex;
+      align-items: stretch;
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      transition: transform .3s ease, box-shadow .3s ease, border-color .3s ease;
+    }
+
+    .career-card:hover {
+      transform: translateY(-4px);
+      box-shadow: var(--shadow-soft);
+      border-color: transparent;
+    }
+
+    .career-card-media {
+      width: 150px;
+      flex-shrink: 0;
+      background-size: cover;
+      background-position: center;
+    }
+
+    .career-card-body {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 22px 28px;
+      min-width: 0;
+    }
+
+    .career-card-info h4 {
+      font-size: 1.02rem;
+      margin-bottom: 10px;
+    }
+
+    .career-card-meta {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .career-tag {
+      font-size: .74rem;
+      font-weight: 600;
+      color: var(--blue-primary);
+      background: var(--ice-2);
+      padding: 5px 12px;
+      border-radius: 999px;
+      white-space: nowrap;
+    }
+
+    .career-card .btn {
+      flex-shrink: 0;
+      padding: 12px 22px;
+      font-size: .84rem;
+    }
+
+    /* ============ RESPONSIVE ============ */
+    @media (max-width: 1024px) {
+
+      .vm-row,
+      .about-grid,
+      .apps-hero,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .app-steps-grid,
+      .app-gallery-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .vm-row.reverse .vm-row-media,
+      .vm-row.reverse .vm-row-content {
+        order: 0;
+      }
+
+      .service-grid,
+      .testi-grid,
+      .blog-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .collab-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .clientele-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .client-card:nth-child(even) {
+        transform: none;
+      }
+
+      .client-card:nth-child(even):hover {
+        transform: translateY(-6px);
+      }
+
+      .nav-group.left .nav-link:nth-child(3) {
+        display: none;
+      }
+
+      .vm-row-media {
+        min-height: 280px;
+      }
+
+      .vm-row-number {
+        font-size: 3.6rem;
+        top: -22px;
+      }
+
+      .impact-band-grid {
+        grid-template-columns: repeat(2, 1fr);
+        row-gap: 24px;
+      }
+
+      .impact-stat:nth-child(odd) {
+        border-right: 1px solid rgba(255, 255, 255, .16);
+      }
+
+      .impact-stat:nth-child(even) {
+        border-right: none;
+      }
+
+      .why-bento {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .why-cell.span-2x2 {
+        grid-column: span 2;
+        grid-row: span 1;
+        min-height: 220px;
+      }
+
+      .why-cell.span-2x1 {
+        grid-column: span 2;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-card:nth-child(2n) {
+        margin-top: 0;
+      }
+
+      .team-card:nth-child(odd) {
+        margin-top: 26px;
+      }
+
+      .awards-strip {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .mobile-panel {
+      position: fixed;
+      top: 88px;
+      left: 50%;
+      transform: translateX(-50%) translateY(-10px);
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      z-index: 999;
+    }
+
+    @media (max-width: 860px) {
+      header.site-header {
+        grid-template-columns: auto 1fr auto;
+        padding: 16px 18px;
+      }
+
+      header.site-header.scrolled {
+        padding: 12px 18px;
+      }
+
+      .nav-group.left,
+      .nav-group.right,
+      .nav-right-wrap .contact-pill {
+        display: none;
+      }
+
+      .nav-right-wrap {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: flex;
+      }
+
+      .logo-mark {
+        justify-self: start;
+      }
+
+      .logo-mark img {
+        height: 38px;
+      }
+
+      .logo-fallback svg {
+        height: 32px;
+        width: 32px;
+      }
+
+      .logo-word {
+        font-size: 1.1rem;
+      }
+
+      .mobile-panel {
+        position: fixed;
+        top: 88px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-10px);
+        width: min(420px, 90%);
+        background: var(--white);
+        border-radius: 24px;
+        box-shadow: var(--shadow-soft);
+        border: 1px solid var(--border-soft);
+        padding: 18px;
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition: .3s ease;
+      }
+
+      .mobile-panel.open {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .mobile-panel .nav-link {
+        display: block;
+        padding: 14px 16px;
+        font-size: 1rem;
+        color: var(--text-main);
+        text-shadow: none;
+      }
+
+      .mobile-panel .nav-link.active {
+        background: var(--ice-2);
+        color: var(--blue-deep);
+      }
+
+      .mobile-panel .contact-pill {
+        display: block;
+        text-align: center;
+        margin: 10px 6px 4px;
+        color: var(--white);
+        background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      }
+    }
+
+    @media (max-width: 760px) {
+
+      .service-grid,
+      .testi-grid,
+      .blog-grid,
+      .app-features,
+      .app-steps-grid,
+      .app-gallery-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .career-card {
+        flex-direction: column;
+      }
+
+      .career-card-media {
+        width: 100%;
+        height: 150px;
+      }
+
+      .career-card-body {
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
+      }
+
+      .career-card .btn {
+        width: 100%;
+      }
+
+      .impact-band-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .impact-stat {
+        border-right: none !important;
+        border-bottom: 1px solid rgba(255, 255, 255, .16);
+        padding: 22px 14px;
+      }
+
+      .impact-stat:last-child {
+        border-bottom: none;
+      }
+
+      .why-bento {
+        grid-template-columns: 1fr;
+        grid-auto-rows: auto;
+      }
+
+      .why-cell.span-2x2,
+      .why-cell.span-2x1 {
+        grid-column: span 1;
+        min-height: 200px;
+      }
+
+      .team-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .team-card:nth-child(odd) {
+        margin-top: 0;
+      }
+
+      .awards-strip {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-form-head {
+        flex-direction: column;
+      }
+
+      .response-badge {
+        align-self: flex-start;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .cta-band {
+        padding: 44px 26px;
+        flex-direction: column;
+        text-align: center;
+        justify-content: center;
+      }
+
+      .cta-band-actions {
+        justify-content: center;
+      }
+
+      .clientele-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .client-card:nth-child(even) {
+        transform: none;
+      }
+
+      .client-card:nth-child(even):hover {
+        transform: translateY(-6px);
+      }
+
+      .hero-dots {
+        right: 14px;
+        bottom: 22px;
+      }
+
+      .section {
+        padding: 80px 0;
+      }
+
+      .milestone-row {
+        justify-content: center;
+      }
+
+      .floating-chip {
+        max-width: 180px;
+        left: 14px;
+        bottom: 14px;
+        padding: 10px 14px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header" id="siteHeader">
+    <nav class="nav-group left">
+      <a href="#" class="nav-link active" data-view="home">Home</a>
+      <a href="#" class="nav-link" data-view="about">About Us</a>
+      <a href="#" class="nav-link" data-view="service">Service</a>
+    </nav>
+
+    <a href="#" class="logo-mark" data-view="home">
+      <img src="logo.png" alt="Vealthme logo"
+        onerror="this.replaceWith(document.getElementById('logo-fallback').content.cloneNode(true))">
+    </a>
+
+    <div class="nav-right-wrap">
+      <nav class="nav-group right">
+        <a href="#" class="nav-link" data-view="blog">Blog</a>
+        <a href="#" class="nav-link" data-view="collaboration">Collaboration</a>
+        <div class="has-dropdown">
+          <a href="#" class="nav-link" data-view="apps">Apps</a>
+          <div class="apps-dropdown">
+            <a class="store-mini-badge" href="#" data-view="apps">
+              <svg viewBox="0 0 512 512">
+                <path fill="#2CC4FF"
+                  d="M31.8 44.9c-6.2 6.5-9.9 16.5-9.9 29.4v383.4c0 12.9 3.7 22.9 9.9 29.4l1.6 1.5L241.3 261.7v-4.9L33.4 43.4l-1.6 1.5z" />
+                <path fill="#00E187" d="M31.8 467.1c6.2 6.5 16.4 7.4 30.7 1.3l249.4-141.7-70.6-70.6-209.5 211z" />
+                <path fill="#FF3A44" d="M311.9 191.7 62.5 50.1c-14.3-6.1-24.5-5.2-30.7 1.3l209.5 211 70.6-70.7z" />
+                <path fill="#FFCA28"
+                  d="m311.9 320.3 79.9-44.4c22.8-13 22.8-34.2 0-47.2l-79.9-44.4-70.6 70.6 70.6 70.4z" />
+              </svg>
+              <span class="txt"><small>GET IT ON</small><strong>Google Play</strong></span>
+            </a>
+            <a class="store-mini-badge" href="#" data-view="apps">
+              <svg viewBox="0 0 24 24" fill="var(--blue-deep)">
+                <path
+                  d="M17.5 12.2c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.3-1.2 3.1-2.5.9-1.4 1.3-2.8 1.3-2.9-.1 0-2.9-1.1-2.9-4.1ZM15 4.7c.7-.8 1.1-1.9 1-3-1 .1-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.4Z" />
+              </svg>
+              <span class="txt"><small>DOWNLOAD ON THE</small><strong>App Store</strong></span>
+            </a>
+          </div>
+        </div>
+      </nav>
+      <a href="#" class="contact-pill" data-view="contact">
+        Contact
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+          stroke-linejoin="round" style="width:15px;height:15px;">
+          <path d="M5 12h14M13 6l6 6-6 6" />
+        </svg>
+      </a>
+      <button class="menu-toggle" aria-label="Open menu"
+        onclick="document.getElementById('mobilePanel').classList.toggle('open')">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <template id="logo-fallback">
+    <span class="logo-fallback">
+      <svg viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="19" fill="none" stroke="var(--blue-primary)" stroke-width="1.6" />
+        <path d="M8 21h5l3-8 4 14 3-9h9" fill="none" stroke="var(--neon)" stroke-width="2.2" stroke-linecap="round"
+          stroke-linejoin="round" />
+      </svg>
+      <span class="logo-word">Vealthme</span>
+    </span>
+  </template>
+
+  <div class="mobile-panel" id="mobilePanel">
+    <a href="#" class="nav-link active" data-view="home">Home</a>
+    <a href="#" class="nav-link" data-view="about">About Us</a>
+    <a href="#" class="nav-link" data-view="service">Service</a>
+    <a href="#" class="nav-link" data-view="blog">Blog</a>
+    <a href="#" class="nav-link" data-view="collaboration">Collaboration</a>
+    <a href="#" class="nav-link" data-view="apps">Apps</a>
+    <a href="#" class="contact-pill" data-view="contact">Contact</a>
+  </div>
+
+  <!-- ============ HOME VIEW ============ -->
+  <main class="view active" id="view-home">
+
+    <!-- HERO -->
+    <section class="hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?auto=format&fit=crop&w=1800&q=80');">
+      <div class="hero-slide active" style="background-image:none;">
+        <div class="hero-content">
+          <span class="eyebrow">Corporate Health &amp; Wellness</span>
+          <h1>Your Partner in Workplace Wellbeing</h1>
+          <p>Comprehensive health screening and wellness programs, designed around the people who power your
+            organisation.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
+            <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide"
+        data-bg="https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=1800&q=80">
+        <div class="hero-content">
+          <span class="eyebrow">Preventive &amp; Data-Driven</span>
+          <h1>Preventive Care, Powered by Insight</h1>
+          <p>On-site screenings, clear health reporting, and long-term wellness strategy built for real workplaces.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
+            <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-slide"
+        data-bg="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1800&q=80">
+        <div class="hero-content">
+          <span class="eyebrow">Trusted Nationwide</span>
+          <h1>Healthier Teams, Stronger Business</h1>
+          <p>From executive check-ups to company-wide wellness campaigns, we bring healthcare to the workplace.</p>
+          <div class="hero-ctas">
+            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
+            <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-dots">
+        <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
+        <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
+        <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <!-- VISION / MISSION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Why We Exist</span>
+          <h2>Our Vision &amp; Mission</h2>
+        </div>
+        <div class="vm-rows reveal-stagger">
+          <div class="vm-row">
+            <div class="vm-row-media">
+              <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=1000&q=80"
+                alt="Health professional with stethoscope">
+              <span class="vm-row-tag">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+                Evidence-based
+              </span>
+            </div>
+            <div class="vm-row-content">
+              <span class="vm-row-number">01</span>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
+                  <circle cx="12" cy="12" r="3.2" />
+                </svg>
+              </div>
+              <h3>Our Vision</h3>
+              <p>To be the region's most trusted partner in corporate health, building workplaces where wellbeing is
+                part of the culture, not an afterthought.</p>
+            </div>
+          </div>
+          <div class="vm-row reverse">
+            <div class="vm-row-media">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
+                alt="Team collaborating in a workplace">
+              <span class="vm-row-tag">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
+                  stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+                </svg>
+                People-first
+              </span>
+            </div>
+            <div class="vm-row-content">
+              <span class="vm-row-number">02</span>
+              <div class="icon-wrap">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path
+                    d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+                </svg>
+              </div>
+              <h3>Our Mission</h3>
+              <p>We deliver accessible, data-driven screening and wellness programs that help organisations protect
+                their most valuable asset: their people.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">What We Offer</span>
+          <h2>Our Services</h2>
+          <p>Tailored health programs that scale from a single team to a nationwide workforce.</p>
+        </div>
+        <div class="service-grid reveal-stagger">
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1758691461990-03b49d969495?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M8 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V5a2 2 0 0 0-2-2h-2" />
+                    <rect x="8" y="1.5" width="8" height="4" rx="1" />
+                  </svg></div>
+                <h4>Executive Health Screening</h4>
+              </div>
+              <p>Comprehensive check-ups for leadership teams, with detailed reporting and follow-up guidance.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M3 21v-2a4 4 0 0 1 4-4h4a4 4 0 0 1 4 4v2" />
+                    <circle cx="9" cy="7" r="4" />
+                  </svg></div>
+                <h4>On-site Corporate Screening</h4>
+              </div>
+              <p>We bring the clinic to your office, for minimal downtime and maximum participation.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M12 21c-4-3-8-6.4-8-10.6C4 6.9 6.6 4.5 9.6 4.5c1.7 0 3 .8 3.4 1.5.4-.7 1.7-1.5 3.4-1.5 3 0 5.6 2.4 5.6 5.9 0 4.2-4 7.6-8 10.6Z" />
+                  </svg></div>
+                <h4>Mental Wellness Programs</h4>
+              </div>
+              <p>Confidential counselling, resilience workshops, and manager training on mental health.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1666886573199-88a2ed65470d?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path d="M6.5 6.5 3 3m18 18-3.5-3.5M6.5 17.5 3 21m18-18-3.5 3.5M9 9a4 4 0 0 0 6 6L9 9Z" />
+                  </svg></div>
+                <h4>Fitness &amp; Nutrition Coaching</h4>
+              </div>
+              <p>Group classes, one-on-one coaching, and nutrition plans tailored to busy schedules.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <rect x="3" y="4" width="18" height="13" rx="2" />
+                    <path d="M8 21h8M12 17v4" />
+                  </svg></div>
+                <h4>Health Talks &amp; Webinars</h4>
+              </div>
+              <p>Bite-sized sessions from medical professionals, delivered on-site or online.</p>
+            </div>
+          </div>
+          <div class="service-card">
+            <div class="service-card-img"
+              style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="service-card-body">
+              <div class="icon-row">
+                <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                    stroke-linejoin="round">
+                    <path
+                      d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" />
+                  </svg></div>
+                <h4>Annual Wellness Campaigns</h4>
+              </div>
+              <p>Year-round engagement calendars that keep wellbeing part of everyday work culture.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- BE PART OF OUR ORGANISATION -->
+    <section class="section tight">
+      <div class="container">
+        <div class="cta-band reveal"
+          style="background-image:url('https://images.unsplash.com/photo-1568992687947-868a62a9f521?auto=format&fit=crop&w=1600&q=80');">
+          <div class="cta-band-text">
+            <span class="eyebrow">Careers at Vealthme</span>
+            <h2>Be Part of Our Organisation</h2>
+            <p>We're building a team of clinicians, wellness coaches, and health-tech thinkers redefining what corporate
+              care looks like.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#" class="btn btn-ghost" data-view="contact">View Careers</a>
+            <a href="#" class="btn btn-white" data-view="contact">Send Your CV</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Client Voices</span>
+          <h2>Our Testimonials</h2>
+        </div>
+        <div class="testi-grid reveal-stagger">
+          <div class="testi-card">
+            <svg class="testi-quote-mark" viewBox="0 0 24 24">
+              <path
+                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
+            </svg>
+            <p>Vealthme's on-site screening cut our clinic downtime by half, and the reporting made follow-ups
+              effortless for HR.</p>
+            <div class="testi-person">
+              <div class="testi-avatar">NR</div>
+              <div><strong>Nurul Ain Razak</strong><span>HR Director, Nexora Group</span></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <svg class="testi-quote-mark" viewBox="0 0 24 24">
+              <path
+                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
+            </svg>
+            <p>The mental wellness workshops changed how our managers talk about stress. Engagement scores are the
+              highest in three years.</p>
+            <div class="testi-person">
+              <div class="testi-avatar">JT</div>
+              <div><strong>James Tan</strong><span>People &amp; Culture Lead, Meridian Holdings</span></div>
+            </div>
+          </div>
+          <div class="testi-card">
+            <svg class="testi-quote-mark" viewBox="0 0 24 24">
+              <path
+                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
+            </svg>
+            <p>Professional, punctual, and genuinely caring. Our executive team now looks forward to their annual
+              screening.</p>
+            <div class="testi-person">
+              <div class="testi-avatar">SL</div>
+              <div><strong>Sarah Lim</strong><span>COO, Sterling &amp; Co</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLIENTELE -->
+    <section class="section tight">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Trusted By</span>
+          <h2>Our Clientele</h2>
+        </div>
+        <div class="clientele-grid reveal-stagger">
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path d="M4 20V6l8-3 8 3v14" />
+              </svg></span>
+            <span class="client-name">Nexora Group</span>
+          </div>
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <circle cx="12" cy="12" r="9" />
+              </svg></span>
+            <span class="client-name">Meridian Holdings</span>
+          </div>
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path d="M3 12h18M12 3v18" />
+              </svg></span>
+            <span class="client-name">Pinnacle Energy</span>
+          </div>
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <rect x="4" y="4" width="16" height="16" rx="3" />
+              </svg></span>
+            <span class="client-name">Sterling &amp; Co</span>
+          </div>
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path d="M4 18 12 4l8 14Z" />
+              </svg></span>
+            <span class="client-name">Orbitel</span>
+          </div>
+          <div class="client-card">
+            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+              </svg></span>
+            <span class="client-name">Grandview Capital</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ ABOUT VIEW ============ -->
+  <div class="view" id="view-about">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1568992688065-536aad8a12f6?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">About Vealthme</span>
+        <h1>Healthcare That Comes to Work</h1>
+        <p>Founded to close the gap between busy careers and consistent healthcare, Vealthme has grown into a nationwide
+          corporate wellness partner.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Our Story</span>
+          <h2>From an Idea to a Nationwide Movement</h2>
+          <p style="max-width:640px;margin:14px auto 0;color:var(--text-muted);line-height:1.8;">Employees skip
+            routine health checks not out of neglect, but out of time, so we built a service that meets people where
+            they already are: at work.</p>
+        </div>
+
+        <div class="story-collage reveal">
+          <div class="story-collage-img"
+            style="background-image:url('https://images.unsplash.com/photo-1666887360726-f55472d96c34?auto=format&fit=crop&w=1000&q=80');">
+          </div>
+          <div class="story-collage-img"
+            style="background-image:url('https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=800&q=80');">
+          </div>
+          <div class="story-collage-badge">
+            <span class="dot"></span>
+            <div><strong>Founded 2013</strong><span>Certified Health Partner</span></div>
+          </div>
+        </div>
+
+        <div class="story-timeline reveal-stagger">
+          <div class="story-milestone">
+            <span class="story-milestone-dot"></span>
+            <span class="story-milestone-year">2013</span>
+            <h4>Founded in Petaling Jaya</h4>
+            <p>Started with a single mobile screening van serving small offices around the Klang Valley.</p>
+          </div>
+          <div class="story-milestone">
+            <span class="story-milestone-dot"></span>
+            <span class="story-milestone-year">2016</span>
+            <h4>Went Nationwide</h4>
+            <p>Expanded partnerships to manufacturing and finance clients across Peninsular Malaysia.</p>
+          </div>
+          <div class="story-milestone">
+            <span class="story-milestone-dot"></span>
+            <span class="story-milestone-year">2020</span>
+            <h4>Launched Digital Reports</h4>
+            <p>Introduced secure digital health records and remote result access for every employee.</p>
+          </div>
+          <div class="story-milestone">
+            <span class="story-milestone-dot"></span>
+            <span class="story-milestone-year">2024</span>
+            <h4>120+ Corporate Partners</h4>
+            <p>Now trusted by organisations nationwide, reaching over 85,000 employees.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- IMPACT STATS BAND -->
+    <section class="impact-band reveal"
+      style="background-image:url('https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container" style="padding:0;">
+        <div class="impact-band-grid">
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" />
+                <circle cx="9" cy="7" r="4" />
+                <path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75" />
+              </svg>
+            </div>
+            <div class="num">120+</div>
+            <div class="lbl">Corporate Clients</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" />
+              </svg>
+            </div>
+            <div class="num">85K+</div>
+            <div class="lbl">Employees Reached</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+            </div>
+            <div class="num">12+</div>
+            <div class="lbl">Years Experience</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+              </svg>
+            </div>
+            <div class="num">98%</div>
+            <div class="lbl">Client Retention</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US (BENTO GRID) -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">The Vealthme Difference</span>
+          <h2>Why Choose Us</h2>
+        </div>
+        <div class="why-grid reveal-stagger">
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg></div>
+            <strong>Certified Clinical Team</strong>
+            <p>Accredited practitioners lead every screening and program we deliver.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+              </svg></div>
+            <strong>Nationwide Coverage</strong>
+            <p>Operating across 18 states with a consistent standard of care.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z" />
+              </svg></div>
+            <strong>Flexible Scheduling</strong>
+            <p>Programs that work around your shift patterns and calendar.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg></div>
+            <strong>Secure Digital Reporting</strong>
+            <p>Every result is stored and shared with privacy built in from the start.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+              </svg></div>
+            <strong>Fast Onboarding</strong>
+            <p>Most engagements go live within two weeks of your first call with us.</p>
+          </div>
+          <div class="why-card why-card-accent">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 17.75 5.8 21l1.2-7-5-4.9 6.9-1L12 2l3.1 6.1 6.9 1-5 4.9 1.2 7Z" />
+              </svg></div>
+            <strong>4.9 / 5 Average Rating</strong>
+            <p>Rated by HR leaders across every industry we serve.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR TEAM -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">The People Behind Vealthme</span>
+          <h2>Our Team</h2>
+        </div>
+        <div class="team-grid reveal-stagger">
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
+              alt="Dr. Amirul Hakim, Chief Medical Officer">
+            <div class="team-card-social">
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
+                </svg></a>
+            </div>
+            <div class="team-card-info">
+              <strong>Dr. Amirul Hakim</strong>
+              <span>Chief Medical Officer</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
+              alt="Farah Wahida, Head of Client Success">
+            <div class="team-card-social">
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
+                </svg></a>
+            </div>
+            <div class="team-card-info">
+              <strong>Farah Wahida</strong>
+              <span>Head of Client Success</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
+              alt="Danial Iskandar, Head of Operations">
+            <div class="team-card-social">
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
+                </svg></a>
+            </div>
+            <div class="team-card-info">
+              <strong>Danial Iskandar</strong>
+              <span>Head of Operations</span>
+            </div>
+          </div>
+          <div class="team-card">
+            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80"
+              alt="Nadia Suraya, People and Culture Lead">
+            <div class="team-card-social">
+              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                  <rect x="3" y="3" width="18" height="18" rx="2" />
+                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
+                </svg></a>
+            </div>
+            <div class="team-card-info">
+              <strong>Nadia Suraya</strong>
+              <span>People &amp; Culture Lead</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- AWARDS & RECOGNITION -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Recognised For Our Work</span>
+          <h2>Awards &amp; Recognition</h2>
+        </div>
+        <div class="awards-strip reveal-stagger">
+          <div class="award-card">
+            <div class="award-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="8" r="6" />
+                <path d="M8.2 13.5 6 22l6-3 6 3-2.2-8.5" />
+              </svg>
+            </div>
+            <strong>Best Corporate Wellness Provider</strong>
+            <span>Malaysia HR Awards, 2024</span>
+          </div>
+          <div class="award-card">
+            <div class="award-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <strong>ISO 27001 Certified</strong>
+            <span>Data Security &amp; Privacy, 2023</span>
+          </div>
+          <div class="award-card">
+            <div class="award-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 6 9 17l-5-5" />
+              </svg>
+            </div>
+            <strong>Top SME Healthtech</strong>
+            <span>Digital Health Malaysia, 2022</span>
+          </div>
+          <div class="award-card">
+            <div class="award-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+              </svg>
+            </div>
+            <strong>Most Trusted Health Partner</strong>
+            <span>Employee Benefits Asia, 2021</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ SERVICE VIEW ============ -->
+  <div class="view" id="view-service">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Full Service Range</span>
+        <h1>Health Programs Built Around Your Workforce</h1>
+        <p>Every engagement starts with your organisation's needs, not a fixed package.</p>
+        <div class="service-cats">
+          <span class="service-cat-chip">Screening</span>
+          <span class="service-cat-chip">Mental Health</span>
+          <span class="service-cat-chip">Fitness &amp; Nutrition</span>
+          <span class="service-cat-chip">Education</span>
+          <span class="service-cat-chip">Engagement</span>
+        </div>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+
+        <!-- FEATURED SERVICE -->
+        <div class="service-feature reveal">
+          <div class="service-feature-media"
+            style="background-image:url('https://images.unsplash.com/photo-1758691461990-03b49d969495?auto=format&fit=crop&w=900&q=80');">
+            <span class="service-feature-index">01 · FLAGSHIP PROGRAMME</span>
+          </div>
+          <div class="service-feature-body">
+            <span class="eyebrow">Screening</span>
+            <h3>Executive Health Screening</h3>
+            <p>In-depth diagnostics, cardiology screening, and personalised health reports for leadership teams,
+              delivered with full confidentiality and a dedicated follow-up consultation.</p>
+            <div class="service-feature-tags">
+              <span>Cardiology panel</span>
+              <span>Confidential reporting</span>
+              <span>1-on-1 debrief</span>
+            </div>
+            <a href="#" class="service-feature-link" data-view="contact">
+              Talk to us about this programme
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- REMAINING SERVICES -->
+        <div class="reveal-stagger">
+          <div class="service-feature reverse">
+            <div class="service-feature-media"
+              style="background-image:url('https://images.unsplash.com/photo-1666886573531-48d2e3c2b684?auto=format&fit=crop&w=900&q=80');">
+              <span class="service-feature-index">02 · ON-SITE</span>
+            </div>
+            <div class="service-feature-body">
+              <span class="eyebrow">Screening</span>
+              <h3>On-site Corporate Screening</h3>
+              <p>Mobile clinics and screening booths set up directly at your premises, covering blood work, vision,
+                hearing, and vitals, for minimal downtime and maximum participation.</p>
+              <div class="service-feature-tags">
+                <span>Mobile clinic</span>
+                <span>Blood work &amp; vitals</span>
+                <span>Vision &amp; hearing</span>
+              </div>
+              <a href="#" class="service-feature-link" data-view="contact">
+                Talk to us about this programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-feature">
+            <div class="service-feature-media"
+              style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80');">
+              <span class="service-feature-index">03 · MENTAL HEALTH</span>
+            </div>
+            <div class="service-feature-body">
+              <span class="eyebrow">Mental Health</span>
+              <h3>Mental Wellness Programs</h3>
+              <p>Licensed counsellors, confidential helplines, and resilience training for managers navigating team
+                stress, built to fit real workplace pressure.</p>
+              <div class="service-feature-tags">
+                <span>Confidential helpline</span>
+                <span>Licensed counsellors</span>
+                <span>Manager training</span>
+              </div>
+              <a href="#" class="service-feature-link" data-view="contact">
+                Talk to us about this programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-feature reverse">
+            <div class="service-feature-media"
+              style="background-image:url('https://images.unsplash.com/photo-1666886573199-88a2ed65470d?auto=format&fit=crop&w=900&q=80');">
+              <span class="service-feature-index">04 · FITNESS</span>
+            </div>
+            <div class="service-feature-body">
+              <span class="eyebrow">Fitness &amp; Nutrition</span>
+              <h3>Fitness &amp; Nutrition Coaching</h3>
+              <p>Live and recorded fitness classes, plus one-on-one nutrition consultations tailored to shift and
+                desk workers alike.</p>
+              <div class="service-feature-tags">
+                <span>Live classes</span>
+                <span>1-on-1 coaching</span>
+                <span>Meal planning</span>
+              </div>
+              <a href="#" class="service-feature-link" data-view="contact">
+                Talk to us about this programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-feature">
+            <div class="service-feature-media"
+              style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80');">
+              <span class="service-feature-index">05 · EDUCATION</span>
+            </div>
+            <div class="service-feature-body">
+              <span class="eyebrow">Education</span>
+              <h3>Health Talks &amp; Webinars</h3>
+              <p>Monthly sessions on nutrition, sleep, chronic disease prevention, and workplace ergonomics, led by
+                practising clinicians.</p>
+              <div class="service-feature-tags">
+                <span>Monthly sessions</span>
+                <span>Live clinicians</span>
+                <span>On-site or online</span>
+              </div>
+              <a href="#" class="service-feature-link" data-view="contact">
+                Talk to us about this programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="service-feature reverse">
+            <div class="service-feature-media"
+              style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80');">
+              <span class="service-feature-index">06 · ENGAGEMENT</span>
+            </div>
+            <div class="service-feature-body">
+              <span class="eyebrow">Engagement</span>
+              <h3>Annual Wellness Campaigns</h3>
+              <p>A full-year calendar of challenges, screenings, and awareness drives that keep wellbeing part of
+                everyday work culture.</p>
+              <div class="service-feature-tags">
+                <span>Year-round calendar</span>
+                <span>Team challenges</span>
+                <span>Awareness drives</span>
+              </div>
+              <a href="#" class="service-feature-link" data-view="contact">
+                Talk to us about this programme
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ BLOG VIEW ============ -->
+  <div class="view" id="view-blog">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1606836591695-4d58a73eba1e?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Insights</span>
+        <h1>The Vealthme Journal</h1>
+        <p>Practical reads on workplace health, screening, and building a culture of wellbeing.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="blog-grid reveal-stagger">
+          <article class="blog-card">
+            <div class="blog-thumb"
+              style="background-image:url('https://images.unsplash.com/photo-1700832082200-af7deeb63d9b?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">Screening</span>
+              <h4>5 Signs Your Company Needs On-site Screening</h4>
+              <p>Rising sick leave and low participation in annual check-ups are early warning signs worth acting on.
+              </p>
+              <div class="blog-meta"><span>12 Jul 2026</span><span>4 min read</span></div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-thumb"
+              style="background-image:url('https://images.unsplash.com/photo-1557804506-669a67965ba0?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">Mental Health</span>
+              <h4>Building Psychological Safety in Hybrid Teams</h4>
+              <p>How managers can create space for honest conversations without formal HR escalation.</p>
+              <div class="blog-meta"><span>2 Jul 2026</span><span>6 min read</span></div>
+            </div>
+          </article>
+          <article class="blog-card">
+            <div class="blog-thumb"
+              style="background-image:url('https://images.unsplash.com/photo-1666886573199-88a2ed65470d?auto=format&fit=crop&w=800&q=80');">
+            </div>
+            <div class="blog-body">
+              <span class="blog-tag">Wellness Tech</span>
+              <h4>Desk Lunches That Actually Fuel Focus</h4>
+              <p>Simple nutrition swaps our coaches recommend for teams stuck in back-to-back meetings.</p>
+              <div class="blog-meta"><span>28 Jun 2026</span><span>3 min read</span></div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ COLLABORATION VIEW ============ -->
+  <div class="view" id="view-collaboration">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Partnerships</span>
+        <h1>Let's Build Healthier Workplaces Together</h1>
+        <p>We work alongside healthcare providers, insurers, and organisations to widen access to corporate wellness.
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="collab-grid reveal-stagger">
+          <div class="collab-card">
+            <div class="collab-media"
+              style="background-image:url('https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=800&q=80');">
+              <span class="collab-tag">Clinical Network</span>
+            </div>
+            <div class="collab-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M19 14l-7 7-7-7M12 21V3" />
+              </svg>
+            </div>
+            <div class="collab-body">
+              <h4>Hospitals &amp; Clinics</h4>
+              <p>Referral pathways and diagnostic partnerships that extend our screening capacity nationwide.</p>
+            </div>
+          </div>
+          <div class="collab-card">
+            <div class="collab-media"
+              style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80');">
+              <span class="collab-tag">Benefits</span>
+            </div>
+            <div class="collab-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 3 6v6c0 5 4 9 9 10 5-1 9-5 9-10V6Z" />
+              </svg>
+            </div>
+            <div class="collab-body">
+              <h4>Insurance Providers</h4>
+              <p>Bundled wellness benefits and preventive-care data that support smarter underwriting.</p>
+            </div>
+          </div>
+          <div class="collab-card">
+            <div class="collab-media"
+              style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');">
+              <span class="collab-tag">HR Integration</span>
+            </div>
+            <div class="collab-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="16" rx="2" />
+                <path d="M3 9h18M8 4v5" />
+              </svg>
+            </div>
+            <div class="collab-body">
+              <h4>Corporate HR Partners</h4>
+              <p>Custom wellness calendars integrated directly into your existing HR and benefits platforms.</p>
+            </div>
+          </div>
+          <div class="collab-card">
+            <div class="collab-media"
+              style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=800&q=80');">
+              <span class="collab-tag">Public Health</span>
+            </div>
+            <div class="collab-icon-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <div class="collab-body">
+              <h4>Government &amp; NGOs</h4>
+              <p>Public health collaborations focused on underserved industries and SME workforces.</p>
+            </div>
+          </div>
+        </div>
+        <div class="cta-band reveal"
+          style="margin-top:70px; background-image:url('https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?auto=format&fit=crop&w=1600&q=80');">
+          <div class="cta-band-text">
+            <span class="eyebrow">Ready to Talk?</span>
+            <h2>Become a Vealthme Partner</h2>
+            <p>Tell us about your organisation and we'll design a collaboration that fits.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#" class="btn btn-white" data-view="contact">Start a Conversation</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ APPS VIEW ============ -->
+  <div class="view" id="view-apps">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1666886573199-88a2ed65470d?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Vealthme App</span>
+        <h1>Your Health Dashboard, in Your Pocket</h1>
+        <p>Book screenings, view results, and track wellness goals, all from one app.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container apps-hero">
+        <div class="reveal">
+          <div class="phone-mockup">
+            <div class="phone-screen"
+              style="background-image:url('https://images.unsplash.com/photo-1623658045230-605cb00c80d6?auto=format&fit=crop&w=700&q=80');">
+              <div class="phone-card">
+                <strong>Vealthme Dashboard</strong>
+                <span>Next screening · Fri, 9:30 AM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal">
+          <span class="eyebrow">Available Now</span>
+          <h2 style="font-size:clamp(1.6rem,3vw,2.2rem); margin:14px 0 16px;">Download the App</h2>
+          <p style="color:var(--text-muted); line-height:1.8; max-width:440px;">Get instant access to your screening
+            bookings, digital health reports, and personalised wellness reminders, synced with your corporate wellness
+            plan.</p>
+          <div class="store-badges">
+            <a href="#" class="store-badge">
+              <svg viewBox="0 0 512 512">
+                <path fill="#2CC4FF"
+                  d="M31.8 44.9c-6.2 6.5-9.9 16.5-9.9 29.4v383.4c0 12.9 3.7 22.9 9.9 29.4l1.6 1.5L241.3 261.7v-4.9L33.4 43.4l-1.6 1.5z" />
+                <path fill="#00E187" d="M31.8 467.1c6.2 6.5 16.4 7.4 30.7 1.3l249.4-141.7-70.6-70.6-209.5 211z" />
+                <path fill="#FF3A44" d="M311.9 191.7 62.5 50.1c-14.3-6.1-24.5-5.2-30.7 1.3l209.5 211 70.6-70.7z" />
+                <path fill="#FFCA28"
+                  d="m311.9 320.3 79.9-44.4c22.8-13 22.8-34.2 0-47.2l-79.9-44.4-70.6 70.6 70.6 70.4z" />
+              </svg>
+              <span class="txt"><small>GET IT ON</small><strong>Google Play</strong></span>
+            </a>
+            <a href="#" class="store-badge">
+              <svg viewBox="0 0 24 24" fill="var(--white)">
+                <path
+                  d="M17.5 12.2c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.3-1.2 3.1-2.5.9-1.4 1.3-2.8 1.3-2.9-.1 0-2.9-1.1-2.9-4.1ZM15 4.7c.7-.8 1.1-1.9 1-3-1 .1-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.4Z" />
+              </svg>
+              <span class="txt"><small>DOWNLOAD ON THE</small><strong>App Store</strong></span>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="container app-features reveal-stagger">
+        <div class="app-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="4" width="18" height="17" rx="2" />
+            <path d="M8 2v4M16 2v4M3 10h18" />
+          </svg>
+          <h4>Easy Booking</h4>
+          <p>Reserve your screening slot in a few taps, synced with your company's schedule.</p>
+        </div>
+        <div class="app-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+            <path d="M14 2v6h6" />
+          </svg>
+          <h4>Digital Reports</h4>
+          <p>Secure, private access to every screening result, stored in one place.</p>
+        </div>
+        <div class="app-feature">
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" />
+          </svg>
+          <h4>Wellness Reminders</h4>
+          <p>Gentle nudges for checkups, activity goals, and upcoming wellness events.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP STATS BAND -->
+    <section class="impact-band reveal"
+      style="background-image:url('https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container" style="padding:0;">
+        <div class="impact-band-grid">
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 20V10M18 20V4M6 20v-6" />
+              </svg>
+            </div>
+            <div class="num">30K+</div>
+            <div class="lbl">App Downloads</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m12 2 3.1 6.3 6.9 1-5 4.9 1.2 6.9L12 17.8l-6.2 3.3 1.2-6.9-5-4.9 6.9-1L12 2Z" />
+              </svg>
+            </div>
+            <div class="num">4.8/5</div>
+            <div class="lbl">Average Rating</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="17" rx="2" />
+                <path d="M8 2v4M16 2v4M3 10h18" />
+              </svg>
+            </div>
+            <div class="num">120+</div>
+            <div class="lbl">Companies Connected</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8" />
+              </svg>
+            </div>
+            <div class="num">EN &amp; BM</div>
+            <div class="lbl">Bilingual Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Getting Started</span>
+          <h2>How the App Works</h2>
+        </div>
+        <div class="app-steps-grid reveal-stagger">
+          <div class="app-step">
+            <div class="step-num">1</div>
+            <h4>Create Your Profile</h4>
+            <p>Sign in with your company code and set up your personal health profile in minutes.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">2</div>
+            <h4>Book a Screening</h4>
+            <p>Pick a slot that fits your schedule, synced automatically with your workplace's program.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">3</div>
+            <h4>Track Your Progress</h4>
+            <p>View digital reports, follow wellness reminders, and monitor your health over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- APP GALLERY -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Inside the App</span>
+          <h2>A Closer Look</h2>
+        </div>
+        <div class="app-gallery-grid reveal-stagger">
+          <div class="app-gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&w=800&q=80');">
+            <span>Booking made simple</span>
+          </div>
+          <div class="app-gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80');">
+            <span>Reports at your fingertips</span>
+          </div>
+          <div class="app-gallery-item"
+            style="background-image:url('https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&w=800&q=80');">
+            <span>Track wellness goals</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ CONTACT VIEW ============ -->
+  <div class="view" id="view-contact">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Get in Touch</span>
+        <h1>Let's Design Your Wellness Program</h1>
+        <p>Tell us about your organisation and we'll get back to you within one business day.</p>
+      </div>
+    </section>
+    <section class="section" style="padding-bottom:0;">
+      <div class="container">
+        <div class="why-grid reveal-stagger">
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <strong>Office</strong>
+            <p>Level 12, Menara Vealthme, Jalan Wellness 1, 47800 Petaling Jaya, Selangor</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+              </svg>
+            </div>
+            <strong>Phone &amp; WhatsApp</strong>
+            <p>+60 3-7891 2345</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M4 4h16v16H4Z" />
+                <path d="m4 6 8 7 8-7" />
+              </svg>
+            </div>
+            <strong>Email</strong>
+            <p>hello@vealthme.com</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <form class="contact-form reveal"
+          onsubmit="event.preventDefault(); this.querySelector('.form-success').style.display='block';">
+          <div class="contact-form-head">
+            <div>
+              <span class="eyebrow">Enquiry Form</span>
+              <h3>Send Us a Message</h3>
+              <p>Share a few details about your organisation and we'll design a program around it.</p>
+            </div>
+            <span class="response-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+              Reply within 1 day
+            </span>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
+            <div class="form-field"><label>Company</label><input type="text" placeholder="Company name" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Email</label><input type="email" placeholder="you@company.com" required>
+            </div>
+            <div class="form-field"><label>Phone</label><input type="tel" placeholder="+60 12-345 6789"></div>
+          </div>
+          <div class="form-field" style="margin-bottom:20px;">
+            <label>Message</label>
+            <textarea rows="5" placeholder="Tell us about your team and what you're looking for..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            Send Message
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13" />
+              <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
+            </svg>
+          </button>
+          <p class="form-success"
+            style="display:none; color:var(--blue-primary); font-size:.86rem; margin-top:14px; text-align:center;">
+            Thanks, our team will be in touch shortly.</p>
+        </form>
+        <div class="reveal map-card">
+          <div class="map-card-head">
+            <div class="map-card-head-info">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <div>
+                <strong>Our Office</strong>
+                <span>Menara Vealthme, Petaling Jaya, Selangor</span>
+              </div>
+            </div>
+            <a href="https://www.google.com/maps?q=Petaling+Jaya,+Selangor,+Malaysia" target="_blank" rel="noopener"
+              class="map-directions">
+              Directions
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+          <iframe src="https://www.google.com/maps?q=Petaling+Jaya,+Selangor,+Malaysia&output=embed" width="100%"
+            height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+            title="Vealthme office location on Google Maps"
+            style="border:0; display:block; flex:1; min-height:0;"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <!-- CAREER OPPORTUNITIES -->
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Careers at Vealthme</span>
+          <h2>Career Opportunities</h2>
+          <p>We're growing our team of clinicians, wellness coaches, and health-tech thinkers. Take a look at our
+            current openings.</p>
+        </div>
+        <div class="career-grid reveal-stagger">
+          <div class="career-card">
+            <div class="career-card-media"
+              style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=500&q=80');">
+            </div>
+            <div class="career-card-body">
+              <div class="career-card-info">
+                <h4>Corporate Wellness Consultant</h4>
+                <div class="career-card-meta">
+                  <span class="career-tag">Full-time</span>
+                  <span class="career-tag">Petaling Jaya</span>
+                  <span class="career-tag">On-site</span>
+                </div>
+              </div>
+              <a href="mailto:careers@vealthme.com?subject=Application%3A%20Corporate%20Wellness%20Consultant"
+                class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-media"
+              style="background-image:url('https://images.unsplash.com/photo-1559839734-2b71ea197ec2?auto=format&fit=crop&w=500&q=80');">
+            </div>
+            <div class="career-card-body">
+              <div class="career-card-info">
+                <h4>Health Screening Nurse</h4>
+                <div class="career-card-meta">
+                  <span class="career-tag">Full-time</span>
+                  <span class="career-tag">Klang Valley</span>
+                  <span class="career-tag">On-site</span>
+                </div>
+              </div>
+              <a href="mailto:careers@vealthme.com?subject=Application%3A%20Health%20Screening%20Nurse"
+                class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-media"
+              style="background-image:url('https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=500&q=80');">
+            </div>
+            <div class="career-card-body">
+              <div class="career-card-info">
+                <h4>App Product Executive</h4>
+                <div class="career-card-meta">
+                  <span class="career-tag">Full-time</span>
+                  <span class="career-tag">Petaling Jaya</span>
+                  <span class="career-tag">Hybrid</span>
+                </div>
+              </div>
+              <a href="mailto:careers@vealthme.com?subject=Application%3A%20App%20Product%20Executive"
+                class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+          <div class="career-card">
+            <div class="career-card-media"
+              style="background-image:url('https://images.unsplash.com/photo-1573497491208-6b1acb260507?auto=format&fit=crop&w=500&q=80');">
+            </div>
+            <div class="career-card-body">
+              <div class="career-card-info">
+                <h4>Client Success Manager</h4>
+                <div class="career-card-meta">
+                  <span class="career-tag">Full-time</span>
+                  <span class="career-tag">Petaling Jaya</span>
+                  <span class="career-tag">Hybrid</span>
+                </div>
+              </div>
+              <a href="mailto:careers@vealthme.com?subject=Application%3A%20Client%20Success%20Manager"
+                class="btn btn-primary">Apply Now</a>
+            </div>
+          </div>
+        </div>
+        <div class="reveal" style="text-align:center; margin-top:34px;">
+          <p style="color:var(--text-muted); font-size:.9rem; margin-bottom:18px;">Don't see a role that fits? We'd
+            still love to hear from you.</p>
+          <a href="mailto:careers@vealthme.com?subject=General%20Application" class="btn btn-white"
+            style="box-shadow:var(--shadow-soft); border:1px solid var(--border-soft);">Send Your Resume</a>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ FOOTER (shared) ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <span class="logo-word">Vealthme</span>
+          <p>Corporate health screening and wellness programs, built for real workplaces across Malaysia.</p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="2" />
+                <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
+              </svg></a>
+            <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <rect x="3" y="3" width="18" height="18" rx="5" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1" />
+              </svg></a>
+            <a href="#" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                <path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3Z" />
+              </svg></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h5>Navigate</h5>
+          <ul>
+            <li><a href="#" class="nav-link" data-view="home">Home</a></li>
+            <li><a href="#" class="nav-link" data-view="about">About Us</a></li>
+            <li><a href="#" class="nav-link" data-view="service">Service</a></li>
+            <li><a href="#" class="nav-link" data-view="blog">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#" class="nav-link" data-view="collaboration">Collaboration</a></li>
+            <li><a href="#" class="nav-link" data-view="apps">Apps</a></li>
+            <li><a href="#" class="nav-link" data-view="contact">Contact</a></li>
+            <li><a href="#" class="nav-link" data-view="contact">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Stay Updated</h5>
+          <p style="font-size:.85rem; color:rgba(255,255,255,.65); margin-bottom:14px;">Monthly wellness tips, straight
+            to your inbox.</p>
+          <div class="footer-newsletter">
+            <input type="email" placeholder="Your email">
+            <button>Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Vealthme. All rights reserved.</span>
+        <span>Privacy Policy &middot; Terms of Service</span>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // ============ VIEW ROUTER ============
+    const navEls = document.querySelectorAll('[data-view]');
+    const views = document.querySelectorAll('.view');
+
+    function showView(name) {
+      views.forEach(v => v.classList.toggle('active', v.id === 'view-' + name));
+      document.querySelectorAll('.nav-link').forEach(l => l.classList.toggle('active', l.dataset.view === name));
+      window.scrollTo({ top: 0, behavior: 'auto' });
+      document.getElementById('mobilePanel').classList.remove('open');
+      updateHeaderState();
+      setTimeout(triggerReveal, 50);
+    }
+    navEls.forEach(el => el.addEventListener('click', e => {
+      e.preventDefault();
+      showView(el.dataset.view);
+    }));
+
+    // ============ HERO SLIDER ============
+    const heroSection = document.querySelector('.hero');
+    const slides = document.querySelectorAll('.hero-slide');
+    const dots = document.querySelectorAll('.hero-dot');
+    let current = 0;
+    function goToSlide(i) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = i;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+      const bg = slides[current].dataset.bg;
+      if (bg) { heroSection.style.backgroundImage = "url('" + bg + "')"; }
+    }
+    dots.forEach((d, i) => d.addEventListener('click', () => { goToSlide(i); resetInterval(); }));
+    let heroInterval = setInterval(() => goToSlide((current + 1) % slides.length), 6000);
+    function resetInterval() { clearInterval(heroInterval); heroInterval = setInterval(() => goToSlide((current + 1) % slides.length), 6000); }
+
+    // ============ SCROLL REVEAL ============
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    function triggerReveal() {
+      document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => observer.observe(el));
+    }
+    triggerReveal();
+
+    // ============ HEADER SYNCED TO HERO / SCROLL ============
+    const header = document.getElementById('siteHeader');
+    function updateHeaderState() {
+      header.classList.toggle('scrolled', window.scrollY > 40);
+    }
+    window.addEventListener('scroll', updateHeaderState);
+    updateHeaderState();
+  </script>
+</body>
+
+</html>
