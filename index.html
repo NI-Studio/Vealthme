@@ -116,6 +116,173 @@
       border-radius: 6px;
     }
 
+    #quick-check,
+    #wellness-program {
+      scroll-margin-top: 110px;
+    }
+
+    .section-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--ice-2);
+      color: var(--blue-primary);
+      font-weight: 700;
+      font-size: .72rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+
+    .section-badge svg {
+      width: 12px;
+      height: 12px;
+    }
+
+    /* ============ GOOGLE REVIEWS ============ */
+    .greview-card {
+      max-width: 780px;
+      margin-inline: auto;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      padding: 34px 38px;
+    }
+
+    .greview-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      padding-bottom: 22px;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .greview-identity {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .greview-g-logo {
+      width: 34px;
+      height: 34px;
+      flex-shrink: 0;
+    }
+
+    .greview-identity strong {
+      display: block;
+      font-family: var(--ff-head);
+      font-size: 1.05rem;
+      color: var(--blue-deep);
+    }
+
+    .greview-identity span {
+      font-size: .85rem;
+      color: var(--text-muted);
+    }
+
+    .greview-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 22px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .88rem;
+      background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
+      color: var(--white);
+      box-shadow: 0 12px 26px -10px rgba(28, 111, 168, .5);
+      transition: transform .25s ease, box-shadow .25s ease;
+      white-space: nowrap;
+    }
+
+    .greview-cta:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 16px 30px -8px var(--neon-glow);
+    }
+
+    .greview-rating-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      padding: 22px 0;
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .greview-score {
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: 2.4rem;
+      color: var(--blue-deep);
+      line-height: 1;
+    }
+
+    .greview-stars {
+      display: flex;
+      gap: 3px;
+    }
+
+    .greview-stars svg {
+      width: 20px;
+      height: 20px;
+      fill: #FBBC05;
+    }
+
+    .greview-count-link {
+      font-weight: 700;
+      font-size: .92rem;
+      color: var(--blue-primary);
+    }
+
+    .greview-count-link:hover {
+      text-decoration: underline;
+    }
+
+    .greview-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 22px;
+    }
+
+    .greview-meta-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: .88rem;
+      color: var(--text-muted);
+    }
+
+    .greview-meta-item svg {
+      width: 18px;
+      height: 18px;
+      stroke: var(--blue-primary);
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    @media (max-width: 560px) {
+      .greview-card {
+        padding: 26px 22px;
+      }
+
+      .greview-top {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .greview-cta {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+
     /* ============ SCROLL REVEAL ============ */
     .reveal {
       opacity: 0;
@@ -408,6 +575,78 @@
       visibility: visible;
       pointer-events: auto;
       transform: translateX(-50%) translateY(0);
+    }
+
+    /* Service dropdown (click-to-toggle, not hover) */
+    .service-dropdown-wrap {
+      position: relative;
+    }
+
+    .service-dropdown {
+      position: absolute;
+      top: calc(100% + 14px);
+      left: 50%;
+      transform: translateX(-50%) translateY(6px);
+      width: 240px;
+      background: var(--white);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+      padding: 10px;
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+      transition: opacity .2s ease, transform .2s ease, visibility .2s ease;
+      z-index: 40;
+    }
+
+    .service-dropdown-wrap.open .service-dropdown {
+      opacity: 1;
+      visibility: visible;
+      pointer-events: auto;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    .service-dropdown-link {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      font-weight: 600;
+      font-size: .88rem;
+      color: var(--text-main);
+      transition: background .2s ease, color .2s ease;
+    }
+
+    .service-dropdown-link:hover {
+      background: var(--ice-2);
+      color: var(--blue-primary);
+    }
+
+    .service-dropdown-link::before {
+      content: "";
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--neon);
+      flex-shrink: 0;
+    }
+
+    .nav-link.has-caret {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .nav-link.has-caret svg {
+      width: 11px;
+      height: 11px;
+      transition: transform .2s ease;
+    }
+
+    .service-dropdown-wrap.open .nav-link.has-caret svg {
+      transform: rotate(180deg);
     }
 
     .store-mini-badge {
@@ -1116,6 +1355,94 @@
 
     .client-card:hover .client-name {
       color: var(--white);
+    }
+
+    /* ============ CLIENTELE MARQUEE (3 rows, auto-scroll) ============ */
+    .clientele-marquee {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .clientele-row {
+      overflow: hidden;
+      width: 100%;
+      -webkit-mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+      mask-image: linear-gradient(90deg, transparent, #000 6%, #000 94%, transparent);
+    }
+
+    .clientele-track {
+      display: flex;
+      gap: 18px;
+      width: max-content;
+      animation: clientele-scroll-left 38s linear infinite;
+    }
+
+    .clientele-row.dir-right .clientele-track {
+      animation-name: clientele-scroll-right;
+    }
+
+    .clientele-row:nth-child(1) .clientele-track {
+      animation-duration: 34s;
+    }
+
+    .clientele-row:nth-child(2) .clientele-track {
+      animation-duration: 42s;
+    }
+
+    .clientele-row:nth-child(3) .clientele-track {
+      animation-duration: 30s;
+    }
+
+    .clientele-row:hover .clientele-track {
+      animation-play-state: paused;
+    }
+
+    @keyframes clientele-scroll-left {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes clientele-scroll-right {
+      from {
+        transform: translateX(-50%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    .client-card-mini {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 16px 22px;
+      border-radius: var(--radius-md);
+      background: var(--white);
+      border: 1px solid var(--border-soft);
+      white-space: nowrap;
+    }
+
+    .client-card-mini .client-logo-icon {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+    }
+
+    .client-card-mini .client-logo-icon svg {
+      width: 19px;
+      height: 19px;
+    }
+
+    .client-card-mini .client-name {
+      font-size: .92rem;
     }
 
     /* ============ FOOTER ============ */
@@ -1873,6 +2200,275 @@
       }
     }
 
+    /* ============ PROGRAMME DETAIL CARD (10-Minute Health Check / Wellness Program) ============ */
+    /* Each dedicated programme page gets its own accent identity, cascaded to every
+       section on that page (badges, icons, step numbers, stat band). */
+    #view-quickcheck {
+      --acc: #12B8CC;
+      --acc-deep: #0A7F91;
+      --acc-tint: #E6FBFC;
+      --acc-tint-2: #CDF3F7;
+    }
+
+    #view-wellness {
+      --acc: #7C6FEC;
+      --acc-deep: #5647C9;
+      --acc-tint: #F1EFFE;
+      --acc-tint-2: #E0DAFC;
+    }
+
+    .prog-card {
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      align-items: stretch;
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid var(--border-soft);
+    }
+
+    .prog-card.reverse {
+      direction: rtl;
+    }
+
+    .prog-card.reverse .prog-card-media,
+    .prog-card.reverse .prog-card-body {
+      direction: ltr;
+    }
+
+    .prog-card-media {
+      position: relative;
+      margin: 18px;
+      border-radius: calc(var(--radius-lg) - 10px);
+      overflow: hidden;
+      background-size: cover;
+      background-position: center;
+      min-height: 420px;
+      isolation: isolate;
+    }
+
+    .prog-card-media::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(200deg, transparent 40%, rgba(15, 61, 92, .55));
+    }
+
+    .prog-card-badge {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 1;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: .74rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: var(--blue-deep);
+      background: var(--white);
+      padding: 10px 16px;
+      border-radius: 999px;
+      box-shadow: var(--shadow-pill);
+    }
+
+    .prog-card-badge svg {
+      width: 15px;
+      height: 15px;
+      stroke: var(--acc-deep);
+      flex-shrink: 0;
+    }
+
+    .prog-card-stat-chip {
+      position: absolute;
+      right: 18px;
+      top: 18px;
+      z-index: 1;
+      background: rgba(15, 61, 92, .55);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, .3);
+      border-radius: var(--radius-sm);
+      padding: 12px 18px;
+      text-align: center;
+    }
+
+    .prog-card-stat-chip .stat-num {
+      display: block;
+      font-family: var(--ff-head);
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: var(--white);
+      line-height: 1;
+      white-space: nowrap;
+    }
+
+    .prog-card-stat-chip .stat-lbl {
+      display: block;
+      font-size: .64rem;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, .8);
+      margin-top: 5px;
+    }
+
+    .prog-card-body {
+      padding: 44px 48px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .prog-card-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-weight: 700;
+      font-size: .74rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--acc-deep);
+      background: var(--acc-tint);
+      padding: 8px 15px;
+      border-radius: 999px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+
+    .prog-card-eyebrow svg {
+      width: 14px;
+      height: 14px;
+      stroke: var(--acc-deep);
+    }
+
+    .prog-card-body h2 {
+      font-size: clamp(1.55rem, 2.5vw, 2.05rem);
+      margin-bottom: 14px;
+    }
+
+    .prog-card-body>p {
+      color: var(--text-muted);
+      line-height: 1.8;
+      margin-bottom: 24px;
+    }
+
+    .prog-card-checklist {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      margin-bottom: 30px;
+    }
+
+    .prog-card-checklist li {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: .9rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .prog-card-checklist .chk {
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--acc-tint-2);
+    }
+
+    .prog-card-checklist .chk svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--acc-deep);
+      stroke-width: 3;
+    }
+
+    .prog-card-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      width: fit-content;
+      padding: 14px 26px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: .9rem;
+      color: var(--white);
+      background: linear-gradient(135deg, var(--acc), var(--acc-deep));
+      box-shadow: 0 14px 28px -12px var(--acc-deep);
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .prog-card-cta:hover {
+      transform: translateY(-3px);
+    }
+
+    .prog-card-cta svg {
+      width: 15px;
+      height: 15px;
+      transition: transform .25s ease;
+    }
+
+    .prog-card-cta:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* Cascade each page's accent through its shared components */
+    #view-quickcheck .why-card .icon-wrap,
+    #view-quickcheck .app-step .step-num {
+      background: linear-gradient(135deg, var(--acc), var(--acc-deep));
+    }
+
+    #view-quickcheck .impact-stat-icon svg {
+      stroke: var(--acc);
+    }
+
+    #view-quickcheck .impact-band::before {
+      background: linear-gradient(120deg, rgba(9, 51, 58, .94), rgba(18, 184, 204, .8));
+    }
+
+    #view-quickcheck .section-badge {
+      background: var(--acc-tint);
+      color: var(--acc-deep);
+    }
+
+    #view-wellness .why-card .icon-wrap,
+    #view-wellness .app-step .step-num {
+      background: linear-gradient(135deg, var(--acc), var(--acc-deep));
+    }
+
+    #view-wellness .impact-stat-icon svg {
+      stroke: var(--acc);
+    }
+
+    #view-wellness .impact-band::before {
+      background: linear-gradient(120deg, rgba(37, 28, 92, .94), rgba(124, 111, 236, .78));
+    }
+
+    #view-wellness .section-badge {
+      background: var(--acc-tint);
+      color: var(--acc-deep);
+    }
+
+    @media (max-width: 1024px) {
+      .prog-card {
+        grid-template-columns: 1fr;
+      }
+
+      .prog-card-media {
+        min-height: 260px;
+        margin: 16px 16px 0;
+      }
+
+      .prog-card-body {
+        padding: 32px 26px;
+      }
+    }
+
     /* ============ BLOG ============ */
     .blog-grid {
       display: grid;
@@ -2316,11 +2912,91 @@
       transition: border-color .2s ease, background .2s ease;
     }
 
+    .form-field select {
+      padding: 13px 16px;
+      border-radius: 12px;
+      border: 1.5px solid var(--border-soft);
+      font-family: inherit;
+      font-size: .92rem;
+      background: var(--ice);
+      color: var(--text-main);
+      transition: border-color .2s ease, background .2s ease;
+      appearance: none;
+      background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%235C7488' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='m6 9 6 6 6-6'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 14px center;
+      background-size: 16px;
+    }
+
     .form-field input:focus,
-    .form-field textarea:focus {
+    .form-field textarea:focus,
+    .form-field select:focus {
       border-color: var(--blue-soft);
       background: var(--white);
       outline: none;
+    }
+
+    /* ============ WHATSAPP FLOAT ============ */
+    .whatsapp-float {
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 14px 30px -8px rgba(15, 61, 92, .45);
+      z-index: 999;
+      transition: transform .25s ease, box-shadow .25s ease;
+    }
+
+    .whatsapp-float:hover {
+      transform: translateY(-4px) scale(1.05);
+      box-shadow: 0 18px 36px -8px rgba(15, 61, 92, .55);
+    }
+
+    .whatsapp-float svg {
+      width: 30px;
+      height: 30px;
+      fill: var(--white);
+    }
+
+    .whatsapp-float .wa-ping {
+      position: absolute;
+      inset: 0;
+      border-radius: 50%;
+      background: #25D366;
+      opacity: .55;
+      animation: wa-pulse 2.4s ease-out infinite;
+    }
+
+    @keyframes wa-pulse {
+      0% {
+        transform: scale(1);
+        opacity: .55;
+      }
+
+      100% {
+        transform: scale(1.6);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 760px) {
+      .whatsapp-float {
+        right: 16px;
+        bottom: 16px;
+        width: 52px;
+        height: 52px;
+      }
+
+      .whatsapp-float svg {
+        width: 27px;
+        height: 27px;
+      }
     }
 
     .contact-form-head {
@@ -2800,6 +3476,42 @@
         color: var(--white);
         background: linear-gradient(135deg, var(--blue-primary), var(--blue-deep));
       }
+
+      .mobile-service-toggle {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        padding: 14px 16px;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-main);
+      }
+
+      .mobile-service-toggle svg {
+        width: 12px;
+        height: 12px;
+        transition: transform .2s ease;
+      }
+
+      .mobile-service-toggle.open svg {
+        transform: rotate(180deg);
+      }
+
+      .mobile-service-sub {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height .25s ease;
+      }
+
+      .mobile-service-sub.open {
+        max-height: 220px;
+      }
+
+      .mobile-service-sub .service-dropdown-link {
+        padding: 12px 16px 12px 30px;
+        font-size: .92rem;
+      }
     }
 
     @media (max-width: 760px) {
@@ -2938,7 +3650,20 @@
     <nav class="nav-group left">
       <a href="#" class="nav-link active" data-view="home">Home</a>
       <a href="#" class="nav-link" data-view="about">About Us</a>
-      <a href="#" class="nav-link" data-view="service">Service</a>
+      <div class="has-dropdown service-dropdown-wrap" id="serviceDropdownWrap">
+        <a href="#" class="nav-link has-caret" id="serviceNavToggle" data-view="service">
+          Service
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+            stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6" />
+          </svg>
+        </a>
+        <div class="service-dropdown">
+          <a href="#" class="service-dropdown-link" data-view="service">Our Service</a>
+          <a href="#" class="service-dropdown-link" data-view="quickcheck">10-Minute Health Check</a>
+          <a href="#" class="service-dropdown-link" data-view="wellness">Wellness Program</a>
+        </div>
+      </div>
     </nav>
 
     <a href="#" class="logo-mark" data-view="home">
@@ -2949,7 +3674,7 @@
     <div class="nav-right-wrap">
       <nav class="nav-group right">
         <a href="#" class="nav-link" data-view="blog">Blog</a>
-        <a href="#" class="nav-link" data-view="collaboration">Collaboration</a>
+        <a href="#" class="nav-link" data-view="clinic">Our Clinic</a>
         <div class="has-dropdown">
           <a href="#" class="nav-link" data-view="apps">Apps</a>
           <div class="apps-dropdown">
@@ -3002,9 +3727,20 @@
   <div class="mobile-panel" id="mobilePanel">
     <a href="#" class="nav-link active" data-view="home">Home</a>
     <a href="#" class="nav-link" data-view="about">About Us</a>
-    <a href="#" class="nav-link" data-view="service">Service</a>
+    <button type="button" class="mobile-service-toggle" id="mobileServiceToggle">
+      Service
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+        stroke-linejoin="round">
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    </button>
+    <div class="mobile-service-sub" id="mobileServiceSub">
+      <a href="#" class="service-dropdown-link" data-view="service">Our Service</a>
+      <a href="#" class="service-dropdown-link" data-view="quickcheck">10-Minute Health Check</a>
+      <a href="#" class="service-dropdown-link" data-view="wellness">Wellness Program</a>
+    </div>
     <a href="#" class="nav-link" data-view="blog">Blog</a>
-    <a href="#" class="nav-link" data-view="collaboration">Collaboration</a>
+    <a href="#" class="nav-link" data-view="clinic">Our Clinic</a>
     <a href="#" class="nav-link" data-view="apps">Apps</a>
     <a href="#" class="contact-pill" data-view="contact">Contact</a>
   </div>
@@ -3022,103 +3758,8 @@
           <p>Comprehensive health screening and wellness programs, designed around the people who power your
             organisation.</p>
           <div class="hero-ctas">
-            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
+            <a href="#" class="btn btn-primary" data-view="appointment">Make an Appointment</a>
             <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-slide"
-        data-bg="https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=1800&q=80">
-        <div class="hero-content">
-          <span class="eyebrow">Preventive &amp; Data-Driven</span>
-          <h1>Preventive Care, Powered by Insight</h1>
-          <p>On-site screenings, clear health reporting, and long-term wellness strategy built for real workplaces.</p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
-            <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-slide"
-        data-bg="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=1800&q=80">
-        <div class="hero-content">
-          <span class="eyebrow">Trusted Nationwide</span>
-          <h1>Healthier Teams, Stronger Business</h1>
-          <p>From executive check-ups to company-wide wellness campaigns, we bring healthcare to the workplace.</p>
-          <div class="hero-ctas">
-            <a href="#" class="btn btn-primary" data-view="contact">Get a Free Consultation</a>
-            <a href="#" class="btn btn-ghost" data-view="service">Explore Services</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-dots">
-        <button class="hero-dot active" data-slide="0" aria-label="Slide 1"></button>
-        <button class="hero-dot" data-slide="1" aria-label="Slide 2"></button>
-        <button class="hero-dot" data-slide="2" aria-label="Slide 3"></button>
-      </div>
-    </section>
-
-    <!-- VISION / MISSION -->
-    <section class="section">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow" style="justify-content:center;">Why We Exist</span>
-          <h2>Our Vision &amp; Mission</h2>
-        </div>
-        <div class="vm-rows reveal-stagger">
-          <div class="vm-row">
-            <div class="vm-row-media">
-              <img src="https://images.unsplash.com/photo-1638202993928-7267aad84c31?auto=format&fit=crop&w=1000&q=80"
-                alt="Health professional with stethoscope">
-              <span class="vm-row-tag">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M20 6 9 17l-5-5" />
-                </svg>
-                Evidence-based
-              </span>
-            </div>
-            <div class="vm-row-content">
-              <span class="vm-row-number">01</span>
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7Z" />
-                  <circle cx="12" cy="12" r="3.2" />
-                </svg>
-              </div>
-              <h3>Our Vision</h3>
-              <p>To be the region's most trusted partner in corporate health, building workplaces where wellbeing is
-                part of the culture, not an afterthought.</p>
-            </div>
-          </div>
-          <div class="vm-row reverse">
-            <div class="vm-row-media">
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"
-                alt="Team collaborating in a workplace">
-              <span class="vm-row-tag">
-                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"
-                  stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
-                </svg>
-                People-first
-              </span>
-            </div>
-            <div class="vm-row-content">
-              <span class="vm-row-number">02</span>
-              <div class="icon-wrap">
-                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                  <path
-                    d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
-                </svg>
-              </div>
-              <h3>Our Mission</h3>
-              <p>We deliver accessible, data-driven screening and wellness programs that help organisations protect
-                their most valuable asset: their people.</p>
-            </div>
           </div>
         </div>
       </div>
@@ -3251,53 +3892,17 @@
       </div>
     </section>
 
-    <!-- TESTIMONIALS -->
+    <!-- GOOGLE REVIEWS -->
     <section class="section section-alt">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow" style="justify-content:center;">Client Voices</span>
-          <h2>Our Testimonials</h2>
+          <h2>What Our Clients Say on Google</h2>
         </div>
-        <div class="testi-grid reveal-stagger">
-          <div class="testi-card">
-            <svg class="testi-quote-mark" viewBox="0 0 24 24">
-              <path
-                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
-            </svg>
-            <p>Vealthme's on-site screening cut our clinic downtime by half, and the reporting made follow-ups
-              effortless for HR.</p>
-            <div class="testi-person">
-              <div class="testi-avatar">NR</div>
-              <div><strong>Nurul Ain Razak</strong><span>HR Director, Nexora Group</span></div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <svg class="testi-quote-mark" viewBox="0 0 24 24">
-              <path
-                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
-            </svg>
-            <p>The mental wellness workshops changed how our managers talk about stress. Engagement scores are the
-              highest in three years.</p>
-            <div class="testi-person">
-              <div class="testi-avatar">JT</div>
-              <div><strong>James Tan</strong><span>People &amp; Culture Lead, Meridian Holdings</span></div>
-            </div>
-          </div>
-          <div class="testi-card">
-            <svg class="testi-quote-mark" viewBox="0 0 24 24">
-              <path
-                d="M7 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5M17 8c-2.2 0-4 1.8-4 4s1.8 4 4 4c.3 2.5-1.5 4-3.5 4.5" />
-            </svg>
-            <p>Professional, punctual, and genuinely caring. Our executive team now looks forward to their annual
-              screening.</p>
-            <div class="testi-person">
-              <div class="testi-avatar">SL</div>
-              <div><strong>Sarah Lim</strong><span>COO, Sterling &amp; Co</span></div>
-            </div>
-          </div>
-        </div>
+        <div class="elfsight-app-c47dd935-d963-45de-a26e-ec6302b9a0d7" data-elfsight-app-lazy></div>
       </div>
     </section>
+
 
     <!-- CLIENTELE -->
     <section class="section tight">
@@ -3306,42 +3911,392 @@
           <span class="eyebrow" style="justify-content:center;">Trusted By</span>
           <h2>Our Clientele</h2>
         </div>
-        <div class="clientele-grid reveal-stagger">
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <path d="M4 20V6l8-3 8 3v14" />
-              </svg></span>
-            <span class="client-name">Nexora Group</span>
+        <div class="clientele-marquee reveal">
+          <div class="clientele-row dir-left">
+            <div class="clientele-track">
+              <!-- set A -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+              <!-- set A duplicated for seamless loop -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+            </div>
           </div>
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <circle cx="12" cy="12" r="9" />
-              </svg></span>
-            <span class="client-name">Meridian Holdings</span>
+
+          <div class="clientele-row dir-right">
+            <div class="clientele-track">
+              <!-- set B: shuffled order -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+              <!-- set B duplicated for seamless loop -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+            </div>
           </div>
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <path d="M3 12h18M12 3v18" />
-              </svg></span>
-            <span class="client-name">Pinnacle Energy</span>
-          </div>
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <rect x="4" y="4" width="16" height="16" rx="3" />
-              </svg></span>
-            <span class="client-name">Sterling &amp; Co</span>
-          </div>
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <path d="M4 18 12 4l8 14Z" />
-              </svg></span>
-            <span class="client-name">Orbitel</span>
-          </div>
-          <div class="client-card">
-            <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                <path d="M12 3 3 9v6l9 6 9-6V9Z" />
-              </svg></span>
-            <span class="client-name">Grandview Capital</span>
+
+          <div class="clientele-row dir-left">
+            <div class="clientele-track">
+              <!-- set C: shuffled order -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+              <!-- set C duplicated for seamless loop -->
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 12h18M12 3v18" />
+                  </svg></span>
+                <span class="client-name">Pinnacle Energy</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 2 22 12 12 22 2 12Z" />
+                  </svg></span>
+                <span class="client-name">Vantage Industries</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <rect x="4" y="4" width="16" height="16" rx="3" />
+                  </svg></span>
+                <span class="client-name">Sterling &amp; Co</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 20V6l8-3 8 3v14" />
+                  </svg></span>
+                <span class="client-name">Nexora Group</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 18h18M5 18v-4a7 7 0 0 1 14 0v4" />
+                  </svg></span>
+                <span class="client-name">Ironbridge Manufacturing</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="9" />
+                  </svg></span>
+                <span class="client-name">Meridian Holdings</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M4 18 12 4l8 14Z" />
+                  </svg></span>
+                <span class="client-name">Orbitel</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M3 7c3 0 3 3 6 3s3-3 6-3 3 3 6 3M3 15c3 0 3 3 6 3s3-3 6-3 3 3 6 3" />
+                  </svg></span>
+                <span class="client-name">Cascade Logistics</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <path d="M12 3 3 9v6l9 6 9-6V9Z" />
+                  </svg></span>
+                <span class="client-name">Grandview Capital</span>
+              </div>
+              <div class="client-card-mini">
+                <span class="client-logo-icon"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
+                    <circle cx="12" cy="12" r="4" />
+                    <path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1" />
+                  </svg></span>
+                <span class="client-name">Solstice Retail</span>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -3525,76 +4480,8 @@
       </div>
     </section>
 
-    <!-- OUR TEAM -->
-    <section class="section section-alt">
-      <div class="container">
-        <div class="section-head center reveal">
-          <span class="eyebrow" style="justify-content:center;">The People Behind Vealthme</span>
-          <h2>Our Team</h2>
-        </div>
-        <div class="team-grid reveal-stagger">
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=600&q=80"
-              alt="Dr. Amirul Hakim, Chief Medical Officer">
-            <div class="team-card-social">
-              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
-                </svg></a>
-            </div>
-            <div class="team-card-info">
-              <strong>Dr. Amirul Hakim</strong>
-              <span>Chief Medical Officer</span>
-            </div>
-          </div>
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=600&q=80"
-              alt="Farah Wahida, Head of Client Success">
-            <div class="team-card-social">
-              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
-                </svg></a>
-            </div>
-            <div class="team-card-info">
-              <strong>Farah Wahida</strong>
-              <span>Head of Client Success</span>
-            </div>
-          </div>
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&w=600&q=80"
-              alt="Danial Iskandar, Head of Operations">
-            <div class="team-card-social">
-              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
-                </svg></a>
-            </div>
-            <div class="team-card-info">
-              <strong>Danial Iskandar</strong>
-              <span>Head of Operations</span>
-            </div>
-          </div>
-          <div class="team-card">
-            <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=600&q=80"
-              alt="Nadia Suraya, People and Culture Lead">
-            <div class="team-card-social">
-              <a href="#" aria-label="LinkedIn"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6">
-                  <rect x="3" y="3" width="18" height="18" rx="2" />
-                  <path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" />
-                </svg></a>
-            </div>
-            <div class="team-card-info">
-              <strong>Nadia Suraya</strong>
-              <span>People &amp; Culture Lead</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <!-- AWARDS & RECOGNITION -->
-    <section class="section">
+    <section class="section section-alt">
       <div class="container">
         <div class="section-head center reveal">
           <span class="eyebrow" style="justify-content:center;">Recognised For Our Work</span>
@@ -3661,7 +4548,7 @@
         </div>
       </div>
     </section>
-    <section class="section">
+    <section class="section section-alt">
       <div class="container">
 
         <!-- FEATURED SERVICE -->
@@ -3719,33 +4606,8 @@
 
           <div class="service-feature">
             <div class="service-feature-media"
-              style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80');">
-              <span class="service-feature-index">03 · MENTAL HEALTH</span>
-            </div>
-            <div class="service-feature-body">
-              <span class="eyebrow">Mental Health</span>
-              <h3>Mental Wellness Programs</h3>
-              <p>Licensed counsellors, confidential helplines, and resilience training for managers navigating team
-                stress, built to fit real workplace pressure.</p>
-              <div class="service-feature-tags">
-                <span>Confidential helpline</span>
-                <span>Licensed counsellors</span>
-                <span>Manager training</span>
-              </div>
-              <a href="#" class="service-feature-link" data-view="contact">
-                Talk to us about this programme
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M5 12h14M13 6l6 6-6 6" />
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <div class="service-feature reverse">
-            <div class="service-feature-media"
               style="background-image:url('https://images.unsplash.com/photo-1666886573199-88a2ed65470d?auto=format&fit=crop&w=900&q=80');">
-              <span class="service-feature-index">04 · FITNESS</span>
+              <span class="service-feature-index">03 · FITNESS</span>
             </div>
             <div class="service-feature-body">
               <span class="eyebrow">Fitness &amp; Nutrition</span>
@@ -3767,10 +4629,10 @@
             </div>
           </div>
 
-          <div class="service-feature">
+          <div class="service-feature reverse">
             <div class="service-feature-media"
               style="background-image:url('https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=900&q=80');">
-              <span class="service-feature-index">05 · EDUCATION</span>
+              <span class="service-feature-index">04 · EDUCATION</span>
             </div>
             <div class="service-feature-body">
               <span class="eyebrow">Education</span>
@@ -3792,10 +4654,10 @@
             </div>
           </div>
 
-          <div class="service-feature reverse">
+          <div class="service-feature">
             <div class="service-feature-media"
               style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80');">
-              <span class="service-feature-index">06 · ENGAGEMENT</span>
+              <span class="service-feature-index">05 · ENGAGEMENT</span>
             </div>
             <div class="service-feature-body">
               <span class="eyebrow">Engagement</span>
@@ -3815,6 +4677,431 @@
                 </svg>
               </a>
             </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="section tight">
+      <div class="container">
+        <div class="cta-band reveal"
+          style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=1600&q=80');">
+          <div class="cta-band-text">
+            <span class="eyebrow">Find The Right Fit</span>
+            <h2>Not Sure Which Programme You Need?</h2>
+            <p>Tell us about your workforce and we'll put together a mix of screening, wellness, and engagement
+              programmes that fit your budget and calendar.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#" class="btn btn-white" data-view="appointment">Make an Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ 10-MINUTE HEALTH CHECK VIEW ============ -->
+  <div class="view" id="view-quickcheck">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Quick Screening</span>
+        <h1>10-Minute Health Check</h1>
+        <p>A fast, walk-in vitals check for busy employees who want a quick pulse-check on their health.</p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="prog-card reveal">
+          <div class="prog-card-media"
+            style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=900&q=80');">
+            <div class="prog-card-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg>
+              Quick Screening
+            </div>
+            <div class="prog-card-stat-chip">
+              <span class="stat-num">&lt;10</span>
+              <span class="stat-lbl">Minutes</span>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <span class="prog-card-eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg>
+              Dedicated Programme
+            </span>
+            <h2>10-Minute Health Check</h2>
+            <p>A fast, walk-in vitals check covering blood pressure, BMI, blood sugar, and cholesterol, perfect for
+              busy employees who want a quick pulse-check on their health without booking a full screening.</p>
+            <ul class="prog-card-checklist">
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>No appointment needed</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>Blood pressure &amp; BMI</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>Instant results</li>
+            </ul>
+            <a href="#" class="prog-card-cta" data-view="contact">
+              Talk to us about this programme
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Why It Matters</span>
+          <h2>Big Insight, Zero Downtime</h2>
+        </div>
+        <div class="why-grid reveal-stagger">
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 3" />
+              </svg></div>
+            <strong>Under 10 Minutes</strong>
+            <p>No appointment, no queue disruption — employees are back at their desk before their coffee gets cold.
+            </p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22 12h-4l-3 9L9 3l-3 9H2" />
+              </svg></div>
+            <strong>4 Vitals, One Sitting</strong>
+            <p>Blood pressure, BMI, blood sugar, and cholesterol — the core numbers that flag early risk, checked
+              together.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z" />
+              </svg></div>
+            <strong>Instant Results</strong>
+            <p>No waiting for lab reports — employees see their own numbers on the spot, with plain-language
+              context.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 22s8-4.5 8-11V5l-8-3-8 3v6c0 6.5 8 11 8 11Z" />
+              </svg></div>
+            <strong>An Early Warning System</strong>
+            <p>Catches at-risk patterns while they're still cheap and easy to manage, long before they turn into
+              medical claims.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Getting Started</span>
+          <h2>How It Works</h2>
+        </div>
+        <div class="app-steps-grid reveal-stagger">
+          <div class="app-step">
+            <div class="step-num">1</div>
+            <h4>Walk In</h4>
+            <p>We set up a screening booth right at your premises — employees just show up, no booking required.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">2</div>
+            <h4>Get Checked</h4>
+            <p>A trained nurse takes blood pressure, BMI, blood sugar, and cholesterol in under 10 minutes.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">3</div>
+            <h4>Know Your Numbers</h4>
+            <p>Employees leave with an instant summary and a clear next step if anything needs a closer look.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-band reveal"
+      style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container" style="padding:0;">
+        <div class="impact-band-grid">
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+            </div>
+            <div class="num">&lt;10 min</div>
+            <div class="lbl">Per Employee</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M9 12l2 2 4-4" />
+                <circle cx="12" cy="12" r="9" />
+              </svg>
+            </div>
+            <div class="num">4</div>
+            <div class="lbl">Vitals Checked</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="7" width="18" height="13" rx="2" />
+                <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2M3 12h18" />
+                <path d="M6.5 15.5l4 4" />
+              </svg>
+            </div>
+            <div class="num">0</div>
+            <div class="lbl">Appointment Needed</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M13 2 3 14h7l-1 8 11-14h-7l1-6Z" />
+              </svg>
+            </div>
+            <div class="num">Same-day</div>
+            <div class="lbl">Results</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="container">
+        <div class="cta-band reveal"
+          style="background-image:url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=1600&q=80');">
+          <div class="cta-band-text">
+            <span class="eyebrow">Ready When You Are</span>
+            <h2>Book a 10-Minute Health Check</h2>
+            <p>Bring quick, no-appointment vitals screening to your workplace for your whole team.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#" class="btn btn-white" data-view="appointment">Make an Appointment</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ WELLNESS PROGRAM VIEW ============ -->
+  <div class="view" id="view-wellness">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Mental &amp; Whole-person Health</span>
+        <h1>Wellness Program</h1>
+        <p>Licensed counsellors, confidential helplines, and resilience training built for real workplace pressure.
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <div class="container">
+        <div class="prog-card reverse reveal">
+          <div class="prog-card-media"
+            style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=900&q=80');">
+            <div class="prog-card-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+              </svg>
+              Whole-person Health
+            </div>
+            <div class="prog-card-stat-chip">
+              <span class="stat-num">24/7</span>
+              <span class="stat-lbl">Support</span>
+            </div>
+          </div>
+          <div class="prog-card-body">
+            <span class="prog-card-eyebrow">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg>
+              Dedicated Programme
+            </span>
+            <h2>Wellness Program</h2>
+            <p>Licensed counsellors, confidential helplines, and resilience training for managers navigating team
+              stress, built to fit real workplace pressure.</p>
+            <ul class="prog-card-checklist">
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>Confidential helpline</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>Licensed counsellors</li>
+              <li><span class="chk"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                    stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M20 6 9 17l-5-5" />
+                  </svg></span>Manager training</li>
+            </ul>
+            <a href="#" class="prog-card-cta" data-view="contact">
+              Talk to us about this programme
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="section section-alt">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Why It Matters</span>
+          <h2>Care That Meets People Where They Are</h2>
+        </div>
+        <div class="why-grid reveal-stagger">
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
+              </svg></div>
+            <strong>24/7 Confidential Helpline</strong>
+            <p>Employees can reach a real person any hour of the day, with nothing shared back to management.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg></div>
+            <strong>Licensed Counsellors</strong>
+            <p>Sessions are led by accredited mental health professionals, not scripts or chatbots.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg></div>
+            <strong>Manager Resilience Training</strong>
+            <p>We equip team leads to recognise burnout early and support their people before it becomes a crisis.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M3 12h18M12 3a14 14 0 0 1 0 18M12 3a14 14 0 0 0 0 18" />
+              </svg></div>
+            <strong>Whole-person Approach</strong>
+            <p>Mental, emotional, and workplace stress are treated as connected — not handled in isolation.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="section-head center reveal">
+          <span class="eyebrow" style="justify-content:center;">Getting Started</span>
+          <h2>How It Works</h2>
+        </div>
+        <div class="app-steps-grid reveal-stagger">
+          <div class="app-step">
+            <div class="step-num">1</div>
+            <h4>Reach Out</h4>
+            <p>Employees call or message the confidential helpline anytime — no referral or approval needed.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">2</div>
+            <h4>Get Matched</h4>
+            <p>They're paired with a licensed counsellor suited to what they're going through.</p>
+          </div>
+          <div class="app-step">
+            <div class="step-num">3</div>
+            <h4>Ongoing Support</h4>
+            <p>Regular sessions plus manager training help sustain a healthier team culture over time.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="impact-band reveal"
+      style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container" style="padding:0;">
+        <div class="impact-band-grid">
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+            </div>
+            <div class="num">24/7</div>
+            <div class="lbl">Helpline Access</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="10" rx="2" />
+                <path d="M7 11V7a5 5 0 0 1 10 0v4" />
+              </svg>
+            </div>
+            <div class="num">100%</div>
+            <div class="lbl">Confidential</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2 2 7l10 5 10-5-10-5ZM2 17l10 5 10-5M2 12l10 5 10-5" />
+              </svg>
+            </div>
+            <div class="num">Licensed</div>
+            <div class="lbl">Counsellors Only</div>
+          </div>
+          <div class="impact-stat">
+            <div class="impact-stat-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M12 21s-7-4.5-9.5-9C.5 8.5 2.5 4.5 6.5 4.5c2 0 3.5 1.2 5.5 3.2 2-2 3.5-3.2 5.5-3.2 4 0 6 4 4 7.5-2.5 4.5-9.5 9-9.5 9Z" />
+              </svg>
+            </div>
+            <div class="num">Ongoing</div>
+            <div class="lbl">Team Support</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section tight">
+      <div class="container">
+        <div class="cta-band reveal"
+          style="background-image:url('https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=1600&q=80');">
+          <div class="cta-band-text">
+            <span class="eyebrow">Support Your Team</span>
+            <h2>Bring Wellness Program to Your Workplace</h2>
+            <p>Confidential counselling and resilience training designed around real workplace pressure.</p>
+          </div>
+          <div class="cta-band-actions">
+            <a href="#" class="btn btn-white" data-view="appointment">Make an Appointment</a>
           </div>
         </div>
       </div>
@@ -3873,14 +5160,14 @@
     </section>
   </div>
 
-  <!-- ============ COLLABORATION VIEW ============ -->
-  <div class="view" id="view-collaboration">
+  <!-- ============ OUR CLINIC VIEW ============ -->
+  <div class="view" id="view-clinic">
     <section class="page-hero img-hero"
       style="background-image:url('https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1800&q=80');">
       <div class="container reveal">
-        <span class="eyebrow" style="justify-content:center;">Partnerships</span>
-        <h1>Let's Build Healthier Workplaces Together</h1>
-        <p>We work alongside healthcare providers, insurers, and organisations to widen access to corporate wellness.
+        <span class="eyebrow" style="justify-content:center;">Our Clinic</span>
+        <h1>A Clinic Built Around Your Comfort</h1>
+        <p>Modern facilities, experienced clinicians, and a welcoming space designed to make every visit easy.
         </p>
       </div>
     </section>
@@ -3890,7 +5177,7 @@
           <div class="collab-card">
             <div class="collab-media"
               style="background-image:url('https://images.unsplash.com/photo-1666887360680-9dc27a1d2753?auto=format&fit=crop&w=800&q=80');">
-              <span class="collab-tag">Clinical Network</span>
+              <span class="collab-tag">Consultation</span>
             </div>
             <div class="collab-icon-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -3898,14 +5185,14 @@
               </svg>
             </div>
             <div class="collab-body">
-              <h4>Hospitals &amp; Clinics</h4>
-              <p>Referral pathways and diagnostic partnerships that extend our screening capacity nationwide.</p>
+              <h4>Consultation Rooms</h4>
+              <p>Private, comfortable rooms where our clinicians take time to understand your health concerns.</p>
             </div>
           </div>
           <div class="collab-card">
             <div class="collab-media"
               style="background-image:url('https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=800&q=80');">
-              <span class="collab-tag">Benefits</span>
+              <span class="collab-tag">Diagnostics</span>
             </div>
             <div class="collab-icon-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -3913,14 +5200,14 @@
               </svg>
             </div>
             <div class="collab-body">
-              <h4>Insurance Providers</h4>
-              <p>Bundled wellness benefits and preventive-care data that support smarter underwriting.</p>
+              <h4>Diagnostic Lab</h4>
+              <p>On-site testing and imaging equipment for fast, accurate results without extra referrals.</p>
             </div>
           </div>
           <div class="collab-card">
             <div class="collab-media"
               style="background-image:url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=800&q=80');">
-              <span class="collab-tag">HR Integration</span>
+              <span class="collab-tag">Comfort</span>
             </div>
             <div class="collab-icon-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -3929,14 +5216,14 @@
               </svg>
             </div>
             <div class="collab-body">
-              <h4>Corporate HR Partners</h4>
-              <p>Custom wellness calendars integrated directly into your existing HR and benefits platforms.</p>
+              <h4>Waiting &amp; Wellness Lounge</h4>
+              <p>A calm, comfortable space designed to keep your visit stress-free from check-in to check-out.</p>
             </div>
           </div>
           <div class="collab-card">
             <div class="collab-media"
               style="background-image:url('https://images.unsplash.com/photo-1573164574572-cb89e39749b4?auto=format&fit=crop&w=800&q=80');">
-              <span class="collab-tag">Public Health</span>
+              <span class="collab-tag">Accessibility</span>
             </div>
             <div class="collab-icon-badge">
               <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
@@ -3944,20 +5231,25 @@
               </svg>
             </div>
             <div class="collab-body">
-              <h4>Government &amp; NGOs</h4>
-              <p>Public health collaborations focused on underserved industries and SME workforces.</p>
+              <h4>Easy Location</h4>
+              <p>Centrally located with ample parking, making it simple to fit a visit into your day.</p>
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="section section-alt tight">
+      <div class="container">
         <div class="cta-band reveal"
-          style="margin-top:70px; background-image:url('https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?auto=format&fit=crop&w=1600&q=80');">
+          style="background-image:url('https://images.unsplash.com/photo-1511376979163-f804dff7ad7b?auto=format&fit=crop&w=1600&q=80');">
           <div class="cta-band-text">
-            <span class="eyebrow">Ready to Talk?</span>
-            <h2>Become a Vealthme Partner</h2>
-            <p>Tell us about your organisation and we'll design a collaboration that fits.</p>
+            <span class="eyebrow">Ready to Visit?</span>
+            <h2>Come See Our Clinic</h2>
+            <p>Book a slot and our team will take care of the rest.</p>
           </div>
           <div class="cta-band-actions">
-            <a href="#" class="btn btn-white" data-view="contact">Start a Conversation</a>
+            <a href="#" class="btn btn-white" data-view="appointment">Make an Appointment</a>
           </div>
         </div>
       </div>
@@ -4189,6 +5481,31 @@
             <p>hello@vealthme.com</p>
           </div>
         </div>
+
+        <div class="reveal"
+          style="margin-top:28px; display:flex; align-items:center; justify-content:space-between; gap:20px; flex-wrap:wrap; background:var(--white); border:1px solid var(--border-soft); border-radius:var(--radius-lg); box-shadow:var(--shadow-soft); padding:26px 32px;">
+          <div style="display:flex; align-items:center; gap:16px;">
+            <div style="width:46px; height:46px; border-radius:13px; display:flex; align-items:center; justify-content:center; background:linear-gradient(135deg, var(--blue-primary), var(--blue-deep)); flex-shrink:0;">
+              <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="var(--white)" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+            </div>
+            <div>
+              <strong style="display:block; font-family:var(--ff-head); color:var(--blue-deep); font-size:1.05rem;">
+                Already know what you need?</strong>
+              <span style="color:var(--text-muted); font-size:.88rem;">Skip the message and book your slot
+                directly.</span>
+            </div>
+          </div>
+          <a href="#" class="btn btn-primary" data-view="appointment" style="flex-shrink:0;">
+            Make an Appointment
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 12h14M13 6l6 6-6 6" />
+            </svg>
+          </a>
+        </div>
       </div>
     </section>
 
@@ -4352,6 +5669,196 @@
     </section>
   </div>
 
+  <!-- ============ APPOINTMENT VIEW ============ -->
+  <div class="view" id="view-appointment">
+    <section class="page-hero img-hero"
+      style="background-image:url('https://images.unsplash.com/photo-1666214280391-8ff5bd3c0bf0?auto=format&fit=crop&w=1800&q=80');">
+      <div class="container reveal">
+        <span class="eyebrow" style="justify-content:center;">Book Now</span>
+        <h1>Make an Appointment</h1>
+        <p>Schedule a corporate health screening or wellness session for your team. Fill in the form below and our
+          team will confirm your slot within one business day.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-bottom:0;">
+      <div class="container">
+        <div class="why-grid reveal-stagger">
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" />
+                <path d="M16 2v4M8 2v4M3 10h18" />
+              </svg>
+            </div>
+            <strong>Flexible Scheduling</strong>
+            <p>Pick a date and time that works around your team's shift and business hours.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+            </div>
+            <strong>On-Site or In-Clinic</strong>
+            <p>We bring the screening team to your office, or you can visit our Petaling Jaya clinic.</p>
+          </div>
+          <div class="why-card">
+            <div class="icon-wrap">
+              <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+            </div>
+            <strong>Fast Confirmation</strong>
+            <p>Our team confirms your appointment slot within one business day.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container contact-grid">
+        <form class="contact-form reveal"
+          onsubmit="event.preventDefault(); this.querySelector('.form-success').style.display='block'; this.reset();">
+          <div class="contact-form-head">
+            <div>
+              <span class="eyebrow">Appointment Form</span>
+              <h3>Book Your Slot</h3>
+              <p>Tell us your preferred date, time and the service you need.</p>
+            </div>
+            <span class="response-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3.5 2" />
+              </svg>
+              Reply within 1 day
+            </span>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Full Name</label><input type="text" placeholder="Your name" required>
+            </div>
+            <div class="form-field"><label>Company</label><input type="text" placeholder="Company name" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Email</label><input type="email" placeholder="you@company.com" required>
+            </div>
+            <div class="form-field"><label>Phone</label><input type="tel" placeholder="+60 12-345 6789" required>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-field"><label>Preferred Date</label><input type="date" required></div>
+            <div class="form-field"><label>Preferred Time</label><input type="time" required></div>
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label>Service Needed</label>
+              <select required>
+                <option value="" disabled selected>Select a service</option>
+                <option>10-Minute Health Check</option>
+                <option>Corporate Health Screening</option>
+                <option>Wellness Program</option>
+                <option>Other / Not Sure</option>
+              </select>
+            </div>
+            <div class="form-field"><label>Number of Employees</label><input type="number" min="1"
+                placeholder="e.g. 50"></div>
+          </div>
+          <div class="form-field" style="margin-bottom:20px;">
+            <label>Additional Notes</label>
+            <textarea rows="4" placeholder="Anything else we should know before your appointment..."></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">
+            Confirm Appointment Request
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 2 11 13" />
+              <path d="M22 2 15 22l-4-9-9-4 20-7Z" />
+            </svg>
+          </button>
+          <p class="form-success"
+            style="display:none; color:var(--blue-primary); font-size:.86rem; margin-top:14px; text-align:center;">
+            Thanks! Your appointment request has been received — our team will confirm your slot shortly.</p>
+        </form>
+        <div class="reveal">
+          <div class="contact-info-card">
+            <div class="contact-info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg>
+              <div>
+                <strong>Office</strong>
+                <span>Level 12, Menara Vealthme, Jalan Wellness 1, 47800 Petaling Jaya, Selangor</span>
+              </div>
+            </div>
+            <div class="contact-info-row">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3.1-8.7A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2Z" />
+              </svg>
+              <div>
+                <strong>Phone &amp; WhatsApp</strong>
+                <span>+60 3-7891 2345</span>
+              </div>
+            </div>
+            <div class="contact-info-row" style="margin-bottom:0;">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 4h16v16H4Z" />
+                <path d="m4 6 8 7 8-7" />
+              </svg>
+              <div>
+                <strong>Email</strong>
+                <span>hello@vealthme.com</span>
+              </div>
+            </div>
+            <a href="https://wa.me/60378912345?text=Hi%2C%20I%27d%20like%20to%20make%20an%20appointment%20with%20Vealthme"
+              target="_blank" rel="noopener"
+              style="margin-top:26px; display:flex; align-items:center; justify-content:center; gap:8px; width:100%; padding:13px 18px; border-radius:999px; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.22); color:var(--white); font-weight:700; font-size:.88rem; transition:background .2s ease;"
+              onmouseover="this.style.background='rgba(255,255,255,.2)'" onmouseout="this.style.background='rgba(255,255,255,.12)'">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="var(--neon)">
+                <path
+                  d="M16.02 3C9.4 3 4 8.37 4 15c0 2.4.7 4.64 1.9 6.52L4 29l7.66-1.85A11.9 11.9 0 0 0 16.02 27C22.63 27 28 21.63 28 15S22.63 3 16.02 3Zm6.85 16.4c-.29.82-1.44 1.5-2.35 1.7-.63.13-1.44.24-4.2-.9-3.52-1.45-5.8-4.98-5.98-5.21-.17-.24-1.43-1.9-1.43-3.63 0-1.72.9-2.57 1.22-2.92.31-.35.68-.44.9-.44h.65c.21 0 .49-.08.76.58.29.7.98 2.42 1.06 2.6.09.17.14.38.03.61-.11.24-.17.38-.34.58-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.35.9 1.48 1.93 2.4 1.33 1.19 2.44 1.56 2.79 1.74.35.17.55.15.76-.09.2-.24.87-1.01 1.1-1.36.23-.35.46-.29.76-.17.31.11 1.98.93 2.32 1.1.35.17.58.26.66.4.09.15.09.85-.18 1.67Z"
+                  transform="scale(.75) translate(4.5,4.5)" />
+              </svg>
+              Chat on WhatsApp Instead
+            </a>
+          </div>
+          <div class="map-card" style="height:260px; margin-top:20px;">
+            <div class="map-card-head">
+              <div class="map-card-head-info">
+                <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 10c0 7-9 12-9 12S3 17 3 10a9 9 0 0 1 18 0Z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+                <div>
+                  <strong>Our Office</strong>
+                  <span>Menara Vealthme, Petaling Jaya</span>
+                </div>
+              </div>
+              <a href="https://www.google.com/maps?q=Petaling+Jaya,+Selangor,+Malaysia" target="_blank" rel="noopener"
+                class="map-directions">
+                Directions
+                <svg viewBox="0 0 24 24" fill="none" stroke="var(--white)" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round">
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </a>
+            </div>
+            <iframe src="https://www.google.com/maps?q=Petaling+Jaya,+Selangor,+Malaysia&output=embed" width="100%"
+              height="100%" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+              title="Vealthme office location on Google Maps"
+              style="border:0; display:block; flex:1; min-height:0;"></iframe>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+
   <!-- ============ FOOTER (shared) ============ -->
   <footer class="site-footer">
     <div class="container">
@@ -4386,8 +5893,9 @@
         <div class="footer-col">
           <h5>Company</h5>
           <ul>
-            <li><a href="#" class="nav-link" data-view="collaboration">Collaboration</a></li>
+            <li><a href="#" class="nav-link" data-view="clinic">Our Clinic</a></li>
             <li><a href="#" class="nav-link" data-view="apps">Apps</a></li>
+            <li><a href="#" class="nav-link" data-view="appointment">Make an Appointment</a></li>
             <li><a href="#" class="nav-link" data-view="contact">Contact</a></li>
             <li><a href="#" class="nav-link" data-view="contact">Careers</a></li>
           </ul>
@@ -4409,9 +5917,22 @@
     </div>
   </footer>
 
+  <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+  <a href="https://wa.me/60378912345?text=Hi%2C%20I%27d%20like%20to%20find%20out%20more%20about%20Vealthme"
+    target="_blank" rel="noopener" class="whatsapp-float" aria-label="Chat with us on WhatsApp">
+    <span class="wa-ping"></span>
+    <svg viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M16.02 3C9.4 3 4 8.37 4 15c0 2.4.7 4.64 1.9 6.52L4 29l7.66-1.85A11.9 11.9 0 0 0 16.02 27C22.63 27 28 21.63 28 15S22.63 3 16.02 3Zm6.85 16.4c-.29.82-1.44 1.5-2.35 1.7-.63.13-1.44.24-4.2-.9-3.52-1.45-5.8-4.98-5.98-5.21-.17-.24-1.43-1.9-1.43-3.63 0-1.72.9-2.57 1.22-2.92.31-.35.68-.44.9-.44h.65c.21 0 .49-.08.76.58.29.7.98 2.42 1.06 2.6.09.17.14.38.03.61-.11.24-.17.38-.34.58-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.35.9 1.48 1.93 2.4 1.33 1.19 2.44 1.56 2.79 1.74.35.17.55.15.76-.09.2-.24.87-1.01 1.1-1.36.23-.35.46-.29.76-.17.31.11 1.98.93 2.32 1.1.35.17.58.26.66.4.09.15.09.85-.18 1.67Z" />
+    </svg>
+  </a>
+
+  <!-- Elfsight platform script - powers the live Google Reviews widget above -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
+
   <script>
     // ============ VIEW ROUTER ============
-    const navEls = document.querySelectorAll('[data-view]');
+    const navEls = document.querySelectorAll('[data-view]:not(#serviceNavToggle)');
     const views = document.querySelectorAll('.view');
 
     function showView(name) {
@@ -4427,23 +5948,52 @@
       showView(el.dataset.view);
     }));
 
-    // ============ HERO SLIDER ============
-    const heroSection = document.querySelector('.hero');
-    const slides = document.querySelectorAll('.hero-slide');
-    const dots = document.querySelectorAll('.hero-dot');
-    let current = 0;
-    function goToSlide(i) {
-      slides[current].classList.remove('active');
-      dots[current].classList.remove('active');
-      current = i;
-      slides[current].classList.add('active');
-      dots[current].classList.add('active');
-      const bg = slides[current].dataset.bg;
-      if (bg) { heroSection.style.backgroundImage = "url('" + bg + "')"; }
+    // ============ SERVICE DROPDOWN (desktop: click to open/close) ============
+    const serviceNavToggle = document.getElementById('serviceNavToggle');
+    const serviceDropdownWrap = document.getElementById('serviceDropdownWrap');
+    if (serviceNavToggle && serviceDropdownWrap) {
+      serviceNavToggle.addEventListener('click', e => {
+        e.preventDefault();
+        e.stopPropagation();
+        serviceDropdownWrap.classList.toggle('open');
+      });
+      document.addEventListener('click', e => {
+        if (!serviceDropdownWrap.contains(e.target)) {
+          serviceDropdownWrap.classList.remove('open');
+        }
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape') serviceDropdownWrap.classList.remove('open');
+      });
     }
-    dots.forEach((d, i) => d.addEventListener('click', () => { goToSlide(i); resetInterval(); }));
-    let heroInterval = setInterval(() => goToSlide((current + 1) % slides.length), 6000);
-    function resetInterval() { clearInterval(heroInterval); heroInterval = setInterval(() => goToSlide((current + 1) % slides.length), 6000); }
+
+    // ============ SERVICE DROPDOWN (mobile: accordion) ============
+    const mobileServiceToggle = document.getElementById('mobileServiceToggle');
+    const mobileServiceSub = document.getElementById('mobileServiceSub');
+    if (mobileServiceToggle && mobileServiceSub) {
+      mobileServiceToggle.addEventListener('click', () => {
+        mobileServiceToggle.classList.toggle('open');
+        mobileServiceSub.classList.toggle('open');
+      });
+    }
+
+    // ============ SERVICE DROPDOWN LINKS (navigate + scroll to anchor) ============
+    document.querySelectorAll('.service-dropdown-link').forEach(link => {
+      link.addEventListener('click', () => {
+        const anchor = link.dataset.anchor;
+        serviceDropdownWrap && serviceDropdownWrap.classList.remove('open');
+        if (mobileServiceSub) {
+          mobileServiceSub.classList.remove('open');
+          mobileServiceToggle.classList.remove('open');
+        }
+        if (anchor) {
+          setTimeout(() => {
+            const target = document.getElementById(anchor);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }, 120);
+        }
+      });
+    });
 
     // ============ SCROLL REVEAL ============
     const observer = new IntersectionObserver((entries) => {
