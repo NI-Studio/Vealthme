@@ -364,65 +364,71 @@
       </div>
     </section>
 
-    <!-- ============ SECTION 3: VEALTHME APPS (phone.png & tab.png) ============ -->
-    <section class="py-14 sm:py-18 lg:py-24 bg-brand-tint border-b border-border-soft relative overflow-hidden" id="apps-section">
+    <!-- ============ SECTION 3: VEALTHME APPS ============ -->
+    <section class="py-12 sm:py-16 lg:py-24 bg-brand-tint border-b border-border-soft relative overflow-hidden" id="apps-section">
       <div class="w-[92%] max-w-[1240px] mx-auto relative z-10">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 sm:gap-10 lg:gap-14 items-center">
           
-          <div class="lg:col-span-6 relative flex items-center justify-center min-h-[380px] sm:min-h-[460px] lg:min-h-[500px]">
+          <!-- Tab & Phone Preview Images -->
+          <div class="lg:col-span-6 relative flex items-center justify-center min-h-[340px] sm:min-h-[420px] lg:min-h-[500px]">
             <div class="absolute inset-0 bg-brand-blue/15 rounded-full blur-3xl -z-10 pointer-events-none scale-90"></div>
 
+            <!-- Tab Image -->
             <div class="relative w-[65%] sm:w-[320px] lg:w-[360px] -rotate-3 -translate-x-6 sm:-translate-x-10 z-10 transition-transform duration-500 hover:-rotate-1 will-change-transform">
-              <img src="tab.png" 
+              <img src="{{ asset('tab.png') }}" 
                 alt="Employer Portal Tablet Preview" 
                 class="w-full h-auto object-contain drop-shadow-2xl"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=80';">
             </div>
 
+            <!-- Phone Image -->
             <div class="absolute right-2 sm:right-6 lg:right-4 w-[42%] sm:w-[190px] lg:w-[220px] rotate-3 translate-y-6 sm:translate-y-8 z-20 transition-transform duration-500 hover:rotate-1 will-change-transform">
-              <img src="phone.png" 
+              <img src="{{ asset('phone.png') }}" 
                 alt="Vealthme Health Mobile App Preview" 
                 class="w-full h-auto object-contain drop-shadow-2xl"
                 onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=600&q=80';">
             </div>
           </div>
 
+          <!-- Content Copy: Diperbesarkan Selesa untuk Mobile & Tab -->
           <div class="lg:col-span-6 flex flex-col justify-center text-center lg:text-left">
-            <span class="block font-head font-extrabold text-[11px] sm:text-xs tracking-widest uppercase text-brand-blue mb-2.5">
+            <span class="block font-head font-extrabold text-xs sm:text-sm lg:text-xs tracking-widest uppercase text-brand-blue mb-2 lg:mb-2.5">
               Integrated Digital Healthcare
             </span>
 
-            <h2 class="font-head font-extrabold text-2xl sm:text-3xl lg:text-4xl text-brand-deep tracking-tight leading-[1.2] mb-3.5 sm:mb-4">
+            <h2 class="font-head font-extrabold text-2xl sm:text-3xl lg:text-4xl text-brand-deep tracking-tight leading-[1.2] mb-3 lg:mb-4">
               Vealthme Health &amp; <span class="text-brand-blue">Employer Portal</span>
             </h2>
 
-            <p class="text-text-muted text-xs sm:text-sm lg:text-base leading-relaxed mb-5 sm:mb-6 max-w-xl mx-auto lg:mx-0">
+            <p class="text-text-muted text-sm sm:text-base lg:text-base leading-relaxed mb-6 max-w-xl mx-auto lg:mx-0 font-normal">
               A unified healthcare ecosystem connecting workforce vitality with corporate oversight. Employees track personal vitals and screening reports seamlessly via <strong class="text-brand-deep font-semibold">Vealthme Health</strong>, while HR leaders orchestrate diagnostics and wellness metrics through the <strong class="text-brand-deep font-semibold">Employer Portal</strong>.
             </p>
 
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-2.5 gap-x-4 sm:gap-x-6 mb-6 sm:mb-8 max-w-md mx-auto lg:mx-0 text-left">
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-brand-blue shrink-0 shadow-[0_0_6px_rgba(0,181,210,0.6)]"></span>
+            <!-- 4 Features List: Saiz Teks Jelas & Mudah Dibaca -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-y-3 sm:gap-y-3.5 gap-x-4 sm:gap-x-6 mb-7 lg:mb-8 max-w-md mx-auto lg:mx-0 text-left">
+              <div class="flex items-center gap-2.5 text-sm sm:text-base lg:text-sm font-semibold text-slate-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue shrink-0 shadow-[0_0_6px_rgba(0,181,210,0.6)]"></span>
                 Digital Screening Records
               </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-brand-blue/50 shrink-0"></span>
+              <div class="flex items-center gap-2.5 text-sm sm:text-base lg:text-sm font-semibold text-slate-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue/50 shrink-0"></span>
                 Workforce Health Analytics
               </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-brand-blue shrink-0 shadow-[0_0_6px_rgba(0,181,210,0.6)]"></span>
+              <div class="flex items-center gap-2.5 text-sm sm:text-base lg:text-sm font-semibold text-slate-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue shrink-0 shadow-[0_0_6px_rgba(0,181,210,0.6)]"></span>
                 Automated Appointments
               </div>
-              <div class="flex items-center gap-2.5 text-xs sm:text-sm font-semibold text-slate-800">
-                <span class="w-2 h-2 rounded-full bg-brand-blue/50 shrink-0"></span>
+              <div class="flex items-center gap-2.5 text-sm sm:text-base lg:text-sm font-semibold text-slate-800">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-blue/50 shrink-0"></span>
                 Secure Cloud Confidentiality
               </div>
             </div>
 
+            <!-- Download Buttons -->
             <div class="pt-5 border-t border-border-soft flex flex-col items-center justify-center lg:items-start">
               <div class="flex flex-wrap gap-3 sm:gap-3.5 items-center justify-center lg:justify-start w-full">
                 <a href="#" 
-                  class="inline-flex items-center gap-2.5 sm:gap-3 bg-brand-deep hover:bg-brand-blue text-white py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl shadow-sm transition-all duration-200 hover:-translate-y-0.5">
+                  class="inline-flex items-center gap-2.5 sm:gap-3 bg-brand-deep hover:bg-brand-blue text-white py-2.5 px-4 sm:px-5 rounded-2xl shadow-sm transition-all duration-200 hover:-translate-y-0.5">
                   <svg viewBox="0 0 512 512" class="w-4 sm:w-5 h-4 sm:h-5 shrink-0">
                     <path fill="#00b5d2" d="M31.8 44.9c-6.2 6.5-9.9 16.5-9.9 29.4v383.4c0 12.9 3.7 22.9 9.9 29.4l1.6 1.5L241.3 261.7v-4.9L33.4 43.4l-1.6 1.5z" />
                     <path fill="#00E187" d="M31.8 467.1c6.2 6.5 16.4 7.4 30.7 1.3l249.4-141.7-70.6-70.6-209.5 211z" />
@@ -430,19 +436,19 @@
                     <path fill="#FFCA28" d="m311.9 320.3 79.9-44.4c22.8-13 22.8-34.2 0-47.2l-79.9-44.4-70.6 70.6 70.4z" />
                   </svg>
                   <div class="text-left leading-tight">
-                    <small class="block text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider opacity-75">GET IT ON</small>
-                    <strong class="block text-xs sm:text-[13px] font-head font-bold">Google Play</strong>
+                    <small class="block text-[0.6rem] uppercase tracking-wider opacity-75">GET IT ON</small>
+                    <strong class="block text-xs sm:text-sm font-head font-bold">Google Play</strong>
                   </div>
                 </a>
 
                 <a href="#" 
-                  class="inline-flex items-center gap-2.5 sm:gap-3 bg-brand-deep hover:bg-brand-blue text-white py-2 sm:py-2.5 px-4 sm:px-5 rounded-2xl shadow-sm transition-all duration-200 hover:-translate-y-0.5">
+                  class="inline-flex items-center gap-2.5 sm:gap-3 bg-brand-deep hover:bg-brand-blue text-white py-2.5 px-4 sm:px-5 rounded-2xl shadow-sm transition-all duration-200 hover:-translate-y-0.5">
                   <svg viewBox="0 0 24 24" fill="currentColor" class="w-4 sm:w-5 h-4 sm:h-5 shrink-0">
                     <path d="M17.5 12.2c0-2.4 2-3.6 2.1-3.7-1.2-1.7-3-1.9-3.6-2-1.5-.2-3 .9-3.7.9-.8 0-2-.9-3.3-.9-1.7 0-3.3 1-4.1 2.5-1.8 3.1-.5 7.6 1.3 10.1.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.5 0 2 .8 3.3.8 1.4 0 2.3-1.2 3.1-2.5.9-1.4 1.3-2.8 1.3-2.9-.1 0-2.9-1.1-2.9-4.1ZM15 4.7c.7-.8 1.1-1.9 1-3-1 .1-2.1.7-2.8 1.5-.6.7-1.1 1.8-1 2.9 1.1.1 2.1-.5 2.8-1.4Z" />
                   </svg>
                   <div class="text-left leading-tight">
-                    <small class="block text-[0.55rem] sm:text-[0.6rem] uppercase tracking-wider opacity-75">GET IT ON</small>
-                    <strong class="block text-xs sm:text-[13px] font-head font-bold">App Store</strong>
+                    <small class="block text-[0.6rem] uppercase tracking-wider opacity-75">DOWNLOAD ON THE</small>
+                    <strong class="block text-xs sm:text-sm font-head font-bold">App Store</strong>
                   </div>
                 </a>
               </div>
