@@ -11,7 +11,7 @@
   <link rel="shortcut icon" type="image/png" href="browser.png">
   <link rel="apple-touch-icon" href="browser.png">
 
-  <!-- Typography: Nunito Rounded & Poppins -->
+  <!-- Typography Brand: Nunito Rounded & Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -76,7 +76,7 @@
       <!-- NAV KIRI (DESKTOP) -->
       <nav class="hidden lg:flex items-center gap-1">
         
-        <!-- 1. Home -->
+        <!-- 1. Home (Dropdown About Us) -->
         <div class="relative group/home">
           <a href="#"
             class="py-2 px-3.5 rounded-full font-semibold text-[13px] tracking-tight text-slate-700 hover:text-brand-blue hover:bg-brand-tint transition-colors duration-200 inline-flex items-center gap-1.5">
@@ -162,7 +162,7 @@
     </div>
   </header>
 
-  <!-- Fallback Logo Template jika logo.png tiada dalam direktori -->
+  <!-- Fallback Logo Template -->
   <template id="logo-fallback">
     <span class="flex items-center gap-1.5">
       <svg viewBox="0 0 40 40" fill="none" class="w-6 sm:w-7 h-6 sm:h-7">
@@ -194,19 +194,19 @@
     <!-- ============ SECTION 1: HERO ============ -->
     <section class="relative h-auto lg:min-h-[100svh] flex flex-col justify-start items-center overflow-hidden isolate px-4 border-b border-border-soft bg-[#F2F9FD] [background-image:radial-gradient(at_50%_25%,rgba(0,181,210,0.22)_0px,transparent_62%),radial-gradient(at_12%_85%,rgba(215,243,248,0.9)_0px,transparent_52%),linear-gradient(to_right,rgba(0,181,210,0.06)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,181,210,0.06)_1px,transparent_1px)] [background-size:100%_100%,100%_100%,34px_34px,34px_34px] pt-28 sm:pt-32 lg:pt-36 pb-10 lg:pb-12" id="heroSection">
       
-      <!-- Ambient Glow -->
+      <!-- Ambient Multi-Layer Glow Aura -->
       <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[92vw] max-w-[920px] h-[380px] bg-gradient-to-r from-brand-blue/25 via-[#4de2f7]/30 to-brand-blue/25 rounded-full blur-[120px] pointer-events-none -z-10 animate-pulse" style="animation-duration: 6s;"></div>
       <div class="absolute -top-32 -left-28 w-96 h-96 bg-brand-blue/20 rounded-full blur-[110px] pointer-events-none -z-10"></div>
       <div class="absolute -bottom-32 -right-28 w-96 h-96 bg-[#8ae8f7]/40 rounded-full blur-[110px] pointer-events-none -z-10"></div>
 
-      <!-- Accent Tech Grids -->
+      <!-- Accent Tech Grids & Floating Dot Matrices (Desktop Sahaja) -->
       <div class="hidden md:block absolute left-8 lg:left-14 top-1/2 -translate-y-1/2 w-24 h-52 opacity-35 pointer-events-none -z-10 [background-image:radial-gradient(#00b5d2_1.8px,transparent_1.8px)] [background-size:15px_15px]"></div>
       <div class="hidden md:block absolute right-8 lg:right-14 top-1/2 -translate-y-1/2 w-24 h-52 opacity-35 pointer-events-none -z-10 [background-image:radial-gradient(#00b5d2_1.8px,transparent_1.8px)] [background-size:15px_15px]"></div>
 
       <!-- Center Container -->
       <div class="w-full max-w-6xl mx-auto flex flex-col items-center text-center relative z-20 gap-3 sm:gap-4 lg:gap-3.5 mt-1 sm:mt-2 lg:mt-6">
         
-        <!-- 1. Headline -->
+        <!-- 1. Headline (Desktop: Jarak elok & kekal 1 baris) -->
         <div class="w-full px-2 max-w-5xl mx-auto flex flex-col items-center">
           <h1 class="w-full font-head font-extrabold text-brand-deep text-2xl sm:text-3xl md:text-4xl lg:text-[clamp(1.2rem,4.2vw,3.35rem)] tracking-tight leading-snug lg:leading-none lg:whitespace-nowrap drop-shadow-sm mb-2 lg:mb-2.5 text-center">
             Your <span class="text-brand-blue">Corporate Health &amp; Wellness</span> Provider
@@ -216,27 +216,33 @@
           </p>
         </div>
 
-        <!-- 2. 5-Card Deck -->
+        <!-- 2. 5-Card Deck (Desktop: 5 Kad Kompak, Mobile/Tab: 3 Kad) -->
         <div class="w-full flex items-center justify-center py-2 sm:py-3 lg:py-2">
           <div id="deckContainer" class="relative w-36 sm:w-44 md:w-48 lg:w-56 h-52 sm:h-60 md:h-64 lg:h-52 flex items-center justify-center [perspective:1000px]">
             
-            <!-- Card 1 (Desktop) -->
+            <!-- Card 1: Desktop Sahaja (lg:) -->
             <div id="card1" class="hidden lg:block absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white shadow-xl bg-slate-900 cursor-pointer origin-bottom transition-all duration-700 ease-out will-change-transform z-10">
-              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" alt="Workplace Wellbeing" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=600&q=80" 
+                alt="Workplace Wellbeing" 
+                class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-transparent to-transparent"></div>
               <span class="absolute bottom-2.5 inset-x-1 text-center text-[9px] sm:text-[10px] font-head font-bold text-white drop-shadow">Team Wellness</span>
             </div>
 
-            <!-- Card 2 -->
+            <!-- Card 2: Kad Kiri (Mobile / Tab / Desktop) -->
             <div id="card2" class="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white shadow-xl bg-slate-900 cursor-pointer origin-bottom transition-all duration-700 ease-out will-change-transform z-20">
-              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" alt="Clinical Diagnostics" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=600&q=80" 
+                alt="Clinical Diagnostics" 
+                class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-transparent to-transparent"></div>
               <span class="absolute bottom-2.5 inset-x-1 text-center text-[9px] sm:text-[10px] font-head font-bold text-white drop-shadow">Diagnostics</span>
             </div>
 
-            <!-- Card 3 -->
+            <!-- Card 3: Kad Utama Tengah -->
             <div id="card3" class="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden border-2 sm:border-[3px] border-white shadow-2xl bg-brand-deep cursor-pointer origin-bottom transition-all duration-700 ease-out will-change-transform z-30 scale-100 hover:scale-[1.03]">
-              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=650&q=85" alt="Corporate Medical Consultation" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=650&q=85" 
+                alt="Corporate Medical Consultation" 
+                class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-brand-navy/90 via-transparent to-transparent"></div>
               <div class="absolute bottom-3 sm:bottom-3.5 inset-x-1 text-center">
                 <span class="inline-block px-2.5 py-0.5 rounded-full bg-brand-blue text-[8px] sm:text-[9px] font-head font-extrabold text-white uppercase tracking-wider mb-0.5 shadow-sm">Featured</span>
@@ -244,16 +250,20 @@
               </div>
             </div>
 
-            <!-- Card 4 -->
+            <!-- Card 4: Kad Kanan (Mobile / Tab / Desktop) -->
             <div id="card4" class="absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white shadow-xl bg-slate-900 cursor-pointer origin-bottom transition-all duration-700 ease-out will-change-transform z-20">
-              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Digital Analytics" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" 
+                alt="Digital Analytics" 
+                class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-transparent to-transparent"></div>
               <span class="absolute bottom-2.5 inset-x-1 text-center text-[9px] sm:text-[10px] font-head font-bold text-white drop-shadow">Live Reports</span>
             </div>
 
-            <!-- Card 5 (Desktop) -->
+            <!-- Card 5: Desktop Sahaja (lg:) -->
             <div id="card5" class="hidden lg:block absolute inset-0 rounded-2xl sm:rounded-3xl overflow-hidden border-2 border-white shadow-xl bg-slate-900 cursor-pointer origin-bottom transition-all duration-700 ease-out will-change-transform z-10">
-              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" alt="Mental Health Coaching" class="w-full h-full object-cover">
+              <img src="https://images.unsplash.com/photo-1543269865-cbf427effbad?auto=format&fit=crop&w=600&q=80" 
+                alt="Mental Health Coaching" 
+                class="w-full h-full object-cover">
               <div class="absolute inset-0 bg-gradient-to-t from-brand-deep/85 via-transparent to-transparent"></div>
               <span class="absolute bottom-2.5 inset-x-1 text-center text-[9px] sm:text-[10px] font-head font-bold text-white drop-shadow">Mind Care</span>
             </div>
@@ -276,7 +286,7 @@
 
       </div>
 
-      <!-- 4. Mouse Scroll Indicator -->
+      <!-- 4. Mouse Scroll Indicator (Tepat di Tengah Skrin) -->
       <div class="w-full flex justify-center items-center mt-8 sm:mt-10 lg:mt-0 lg:absolute lg:bottom-4 lg:inset-x-0 z-30 pointer-events-none">
         <a href="#vision-mission" 
           id="scrollIndicator"
@@ -352,7 +362,7 @@
       </div>
     </section>
 
-    <!-- ============ SECTION 3: VEALTHME APPS ============ -->
+    <!-- ============ SECTION 3: VEALTHME APPS (phone.png & tab.png) ============ -->
     <section class="py-14 sm:py-18 lg:py-24 bg-brand-tint border-b border-border-soft relative overflow-hidden" id="apps-section">
       <div class="w-[92%] max-w-[1240px] mx-auto relative z-10">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
@@ -580,7 +590,7 @@
                 </div>
               </div>
 
-              <!-- Set Ulangan (Infinite Marquee) -->
+              <!-- Loop Set Duplication -->
               <div class="group relative w-60 sm:w-64 h-[340px] sm:h-[370px] rounded-2xl overflow-hidden border border-white/20 shadow-xl shrink-0 bg-brand-deep transition-all duration-300 hover:-translate-y-1.5 hover:border-brand-blue">
                 <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?auto=format&fit=crop&w=700&q=80" 
                   alt="Pre-Employment Screening" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
@@ -622,16 +632,82 @@
       </div>
     </section>
 
+    <!-- ============ SECTION 5: GOOGLE REVIEWS ============ -->
+    <section class="py-10 sm:py-14 lg:py-16 bg-white border-b border-border-soft relative overflow-hidden" id="reviews">
+      <div class="w-[92%] max-w-[1240px] mx-auto relative z-10">
+        <div class="text-center mb-6">
+          <span class="block font-head font-extrabold text-xs tracking-widest uppercase text-brand-blue">
+            Verified Testimonials
+          </span>
+        </div>
+        <div class="rounded-3xl p-1 sm:p-3 lg:p-4 bg-transparent">
+          <div class="elfsight-app-c47dd935-d963-45de-a26e-ec6302b9a0d7" data-elfsight-app-lazy></div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ============ FOOTER (LENGKAP SEMUA MAKLUMAT) ============ -->
   <footer class="bg-brand-deep text-white/80 pt-12 sm:pt-16 mt-0" id="contact">
-    <div class="w-[92%] max-w-[1200px] mx-auto text-center sm:text-left">
-      <div class="py-6 text-xs text-white/55">
+    <div class="w-[92%] max-w-[1200px] mx-auto">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 sm:gap-10 pb-10 sm:pb-12 border-b border-white/10">
+        <div>
+          <span class="font-head font-extrabold text-2xl text-white tracking-tight">Vealthme</span>
+          <p class="mt-3 sm:mt-4 text-xs sm:text-sm leading-relaxed text-white/70 max-w-xs font-normal">Corporate health screening and wellness programs, built for real workplaces across Malaysia.</p>
+          <div class="flex gap-2.5 mt-4 sm:mt-5">
+            <a href="#" aria-label="LinkedIn" class="w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke="currentColor" class="w-4 h-4 text-white"><rect x="3" y="3" width="18" height="18" rx="2" /><path d="M7 10v7M7 7v.01M12 17v-4.5a2.5 2.5 0 0 1 5 0V17M12 10v7" /></svg></a>
+            <a href="#" aria-label="Instagram" class="w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke="currentColor" class="w-4 h-4 text-white"><rect x="3" y="3" width="18" height="18" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="1" /></svg></a>
+            <a href="#" aria-label="Facebook" class="w-8 sm:w-9 h-8 sm:h-9 rounded-full border border-white/20 flex items-center justify-center hover:bg-brand-blue hover:border-brand-blue transition-colors"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke="currentColor" class="w-4 h-4 text-white"><path d="M15 4h-2a4 4 0 0 0-4 4v3H7v4h2v6h4v-6h3l1-4h-4V8a1 1 0 0 1 1-1h3Z" /></svg></a>
+          </div>
+        </div>
+        <div>
+          <h5 class="text-white font-head font-bold text-xs sm:text-sm tracking-wider uppercase mb-3 sm:mb-4">Navigate</h5>
+          <ul class="flex flex-col gap-2 sm:gap-2.5">
+            <li><a href="#" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Home</a></li>
+            <li><a href="#vision-mission" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Vision &amp; Mission</a></li>
+            <li><a href="#apps-section" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Apps</a></li>
+            <li><a href="#solutions" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Our Solutions</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-head font-bold text-xs sm:text-sm tracking-wider uppercase mb-3 sm:mb-4">Company</h5>
+          <ul class="flex flex-col gap-2 sm:gap-2.5">
+            <li><a href="#solutions" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Our Solutions</a></li>
+            <li><a href="#apps-section" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Apps</a></li>
+            <li><a href="#contact" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Appointment</a></li>
+            <li><a href="#contact" class="text-xs sm:text-sm text-white/70 hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h5 class="text-white font-head font-bold text-xs sm:text-sm tracking-wider uppercase mb-3 sm:mb-4">Stay Updated</h5>
+          <p class="text-xs text-white/65 mb-3 font-normal">Monthly wellness tips, straight to your inbox.</p>
+          <div class="flex gap-2">
+            <input type="email" placeholder="Your email"
+              class="w-full py-2 sm:py-2.5 px-3.5 sm:px-4 rounded-full bg-white/10 border border-white/20 text-xs text-white placeholder-white/50 focus:outline-none focus:border-brand-blue">
+            <button class="py-2 sm:py-2.5 px-4 sm:px-5 rounded-full bg-brand-blue text-white font-head font-bold text-xs shrink-0 hover:bg-white hover:text-brand-deep transition-colors">Join</button>
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-col sm:flex-row justify-between items-center py-5 sm:py-6 gap-3 sm:gap-0 text-xs text-white/55 text-center sm:text-left">
         <span>&copy; 2026 Vealthme. All rights reserved.</span>
+        <span>Privacy Policy &middot; Terms of Service</span>
       </div>
     </div>
   </footer>
+
+  <!-- ============ FLOATING WHATSAPP BUTTON ============ -->
+  <a href="https://wa.me/60378912345?text=Hi%2C%20I%27d%20like%20to%20find%20out%20more%20about%20Vealthme"
+    target="_blank" rel="noopener"
+    class="fixed right-4 sm:right-5 bottom-4 sm:bottom-5 w-12 sm:w-14 h-12 sm:h-14 rounded-full bg-[#25D366] flex items-center justify-center shadow-lg z-50 transition-all hover:scale-105 transform-gpu"
+    aria-label="Chat with us on WhatsApp">
+    <svg viewBox="0 0 32 32" class="w-6 sm:w-7 h-6 sm:h-7 fill-white relative z-10">
+      <path d="M16.02 3C9.4 3 4 8.37 4 15c0 2.4.7 4.64 1.9 6.52L4 29l7.66-1.85A11.9 11.9 0 0 0 16.02 27C22.63 27 28 21.63 28 15S22.63 3 16.02 3Zm6.85 16.4c-.29.82-1.44 1.5-2.35 1.7-.63.13-1.44.24-4.2-.9-3.52-1.45-5.8-4.98-5.98-5.21-.17-.24-1.43-1.9-1.43-3.63 0-1.72.9-2.57 1.22-2.92.31-.35.68-.44.9-.44h.65c.21 0 .49-.08.76.58.29.7.98 2.42 1.06 2.6.09.17.14.38.03.61-.11.24-.17.38-.34.58-.17.2-.36.45-.51.6-.17.17-.35.36-.15.7.2.35.9 1.48 1.93 2.4 1.33 1.19 2.44 1.56 2.79 1.74.35.17.55.15.76-.09.2-.24.87-1.01 1.1-1.36.23-.35.46-.29.76-.17.31.11 1.98.93 2.32 1.1.35.17.58.26.66.4.09.15.09.85-.18 1.67Z" />
+    </svg>
+  </a>
+
+  <!-- Elfsight platform script (Khas untuk Google Reviews) -->
+  <script src="https://static.elfsight.com/platform/platform.js" async></script>
 
   <!-- Fan-out Script Responsive: 3 Kad untuk Mobile/Tab, 5 Kad untuk Desktop -->
   <script>
